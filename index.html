@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small Batch Studio</title>
+<meta name="description" content="Handcrafted websites for small businesses. Based in Anchorage, Alaska.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EC; --butter:#F6E3A1; --butter-deep:#E9C75A; --ink:#2B2621;
+    --muted:#6B625A; --crust:#B86B3C; --card:#FFFFFF; --line:#EADFC9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;font-weight:700}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--crust);margin-bottom:12px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(251,246,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:21px;text-decoration:none}
+  .logo svg{width:34px;height:34px}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:500}
+  nav ul a{text-decoration:none;color:var(--muted)}
+  nav ul a:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--ink);color:var(--cream);padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.small{padding:9px 18px;font-size:14px}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+  /* hero */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);margin-bottom:22px}
+  .hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--butter) 62%)}
+  .hero p.lead{font-size:20px;color:var(--muted);max-width:560px;margin-bottom:32px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:var(--butter);border-radius:28px;padding:28px;transform:rotate(2deg);box-shadow:0 20px 40px -20px rgba(43,38,33,.35)}
+  .hero-card .mock{background:var(--card);border-radius:14px;padding:16px}
+  .mock .bar{display:flex;gap:6px;margin-bottom:14px}
+  .mock .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+  .mock .blk{height:12px;border-radius:6px;background:var(--line);margin-bottom:10px}
+  .mock .big{height:70px;border-radius:10px;background:var(--cream);margin-bottom:12px}
+  .hero-card .stamp{margin-top:16px;font-family:Fraunces,serif;font-size:18px;text-align:center}
+
+  /* problem */
+  .problem{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .problem h2{font-size:clamp(28px,3.6vw,40px);max-width:700px;margin-bottom:36px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pain{padding:26px;border-radius:18px;background:var(--cream);border:1px solid var(--line)}
+  .pain .ic{font-size:26px;margin-bottom:10px}
+  .pain h3{font-size:20px;margin-bottom:6px}
+  .pain p{color:var(--muted);font-size:15.5px}
+
+  /* services */
+  .services h2,.work h2,.how h2,.contact h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:12px}
+  .sub{color:var(--muted);max-width:620px;margin-bottom:40px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .pkg{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column}
+  .pkg.feature{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .pkg.feature p,.pkg.feature li{color:#D9D0C4}
+  .pkg h3{font-size:22px;margin-bottom:4px}
+  .price{font-family:Fraunces,serif;font-size:28px;margin:8px 0 12px}
+  .price small{font-family:Inter,sans-serif;font-size:14px;font-weight:500;opacity:.7}
+  .pkg p{color:var(--muted);font-size:15px;margin-bottom:14px}
+  .pkg ul{list-style:none;font-size:14.5px;color:var(--muted);margin-top:auto}
+  .pkg li{padding:5px 0 5px 22px;position:relative}
+  .pkg li:before{content:"";position:absolute;left:0;top:12px;width:10px;height:10px;border-radius:50%;background:var(--butter-deep)}
+
+  /* work */
+  .work{background:var(--butter)}
+  .work .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .case{background:var(--card);border-radius:22px;padding:22px}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .ba div{aspect-ratio:4/3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .ba .before{background:#E7E2DA;color:#9A9188}
+  .ba .after{background:var(--cream);color:var(--crust);border:2px dashed var(--butter-deep)}
+  .case h3{font-size:20px}
+  .case p{color:var(--muted);font-size:15px}
+
+  /* about */
+  .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+  .photo{position:relative}
+  .photo img{width:100%;border-radius:50% 50% 24px 24px;display:block;box-shadow:0 20px 40px -24px rgba(43,38,33,.5)}
+  .photo .cat{position:absolute;right:-14px;bottom:-14px;width:96px;height:96px;background:var(--butter);border-radius:50%;display:flex;align-items:center;justify-content:center;border:4px solid var(--cream)}
+  .photo .cat svg{width:62px;height:62px}
+  .about h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:18px}
+  .about p{margin-bottom:14px;color:#4A433C}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .facts span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px}
+
+  /* how */
+  .how{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+  .step{position:relative;padding-top:58px}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--butter);font-family:Fraunces,serif;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:19px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* contact */
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:14px}
+  label{font-size:14px;font-weight:600;display:grid;gap:6px}
+  input,textarea{font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink)}
+  input:focus,textarea:focus{outline:2px solid var(--butter-deep);border-color:transparent}
+  textarea{min-height:110px;resize:vertical}
+  .note{font-size:14px;color:var(--muted)}
+  .thanks{display:none;background:var(--butter);border-radius:14px;padding:16px;font-weight:500}
+
+  footer{padding:40px 0;font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .logo{font-size:17px}
+  footer .logo svg{width:26px;height:26px}
+
+  @media (max-width:900px){
+    nav ul{display:none}
+    .hero .wrap,.about .wrap,.contact .wrap,.work .grid2{grid-template-columns:1fr}
+    .hero-card{max-width:360px}
+    .grid3{grid-template-columns:1fr}
+    .grid4,.steps{grid-template-columns:1fr 1fr}
+    .about .photo{max-width:320px}
+    section{padding:64px 0}
+  }
+  @media (max-width:560px){ .grid4,.steps{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<!-- Little cat mark: a quiet nod to Neville -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cat" viewBox="0 0 64 64">
+    <path d="M14 22 L18 8 L27 18 Q32 16 37 18 L46 8 L50 22 Q54 30 52 38 Q50 52 32 54 Q14 52 12 38 Q10 30 14 22 Z" fill="#2B2621"/>
+    <circle cx="25" cy="33" r="3" fill="#F6E3A1"/><circle cx="39" cy="33" r="3" fill="#F6E3A1"/>
+    <path d="M30 40 L34 40 L32 42.5 Z" fill="#E9A0A0"/>
+    <path d="M32 42.5 Q29 46 26 44 M32 42.5 Q35 46 38 44" stroke="#F6E3A1" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo"><svg><use href="#cat"/></svg>Small Batch Studio</a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#how">How it works</a></li>
+    </ul>
+    <a href="#contact" class="btn small">Free website check</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Handcrafted websites · Anchorage, Alaska</div>
+      <h1>Websites that look as good as your business <em>does in person</em>.</h1>
+      <p class="lead">I redesign and look after websites for local shops, caf&eacute;s, trades and pet businesses, so customers find you, trust you, and walk through the door.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn">Get a free website check</a>
+        <a href="#services" class="btn ghost">See packages</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <div class="mock">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="big"></div>
+        <div class="blk" style="width:80%"></div>
+        <div class="blk" style="width:60%"></div>
+        <div class="blk" style="width:70%"></div>
+      </div>
+      <div class="stamp">Made in small batches, with care.</div>
+    </div>
+  </div>
+</header>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="eyebrow">Sound familiar?</div>
+    <h2>Your business is great. Your website hasn't caught up yet.</h2>
+    <div class="grid3">
+      <div class="pain"><div class="ic">📱</div><h3>It's clunky on phones</h3><p>Most of your customers are looking on a phone. If they have to pinch and zoom, they leave.</p></div>
+      <div class="pain"><div class="ic">🔎</div><h3>The basics are hard to find</h3><p>Hours, prices, menu, how to book. If people can't find them in five seconds, they call someone else.</p></div>
+      <div class="pain"><div class="ic">🕸️</div><h3>Nobody's touched it in years</h3><p>Whoever built it moved on, and now updating it feels like a chore you never get to.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <h2>Simple packages, fixed prices.</h2>
+    <p class="sub">No jargon and no surprise invoices. You'll know exactly what you're getting before we start.</p>
+    <div class="grid4">
+      <div class="pkg">
+        <h3>Website check</h3>
+        <div class="price">Free</div>
+        <p>A short personal video walking through your current site: what's working and what's costing you customers.</p>
+        <ul><li>Mobile &amp; speed review</li><li>Top 3 quick fixes</li><li>No obligation</li></ul>
+      </div>
+      <div class="pkg">
+        <h3>Refresh</h3>
+        <div class="price">$750 <small>starting</small></div>
+        <p>A fresh look and clearer pages on the platform you already have.</p>
+        <ul><li>Mobile-friendly redesign</li><li>Rewritten key pages</li><li>Faster load times</li></ul>
+      </div>
+      <div class="pkg feature">
+        <h3>New site</h3>
+        <div class="price">$1,800 <small>starting</small></div>
+        <p>A brand new site built from scratch, live in about two weeks.</p>
+        <ul><li>Up to 5 pages</li><li>Copywriting help</li><li>Google-ready setup</li></ul>
+      </div>
+      <div class="pkg">
+        <h3>Care plan</h3>
+        <div class="price">$75 <small>/ month</small></div>
+        <p>I keep your site up to date so you never have to think about it.</p>
+        <ul><li>Hours, menu &amp; photo updates</li><li>Fixes &amp; backups</li><li>Just send a text</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Recent work</div>
+    <h2>Fresh out of the oven.</h2>
+    <p class="sub">Before-and-after redesigns for Anchorage businesses. More coming soon.</p>
+    <div class="grid2">
+      <div class="case">
+        <div class="ba"><div class="before">Before</div><div class="after">After</div></div>
+        <h3>Demo redesign #1</h3>
+        <p>Placeholder: a local Anchorage business, redesigned.</p>
+      </div>
+      <div class="case">
+        <div class="ba"><div class="before">Before</div><div class="after">After</div></div>
+        <h3>Demo redesign #2</h3>
+        <p>Placeholder: a second local business, redesigned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="photo">
+      <img src="headshot.jpg" alt="Michal Ulmer, founder of Small Batch Studio">
+      <div class="cat" title="Studio cat"><svg><use href="#cat"/></svg></div>
+    </div>
+    <div>
+      <div class="eyebrow">Hi, I'm Michal</div>
+      <h2>A small business owner who builds websites for small businesses.</h2>
+      <p>I'm a New Yorker who has lived in England and is now spending a year in Anchorage. Before this, I ran an Etsy bakery called Butter Lush Bakes, so I know what it's like to do everything yourself and still have the website on your to-do list.</p>
+      <p>I've built everything from a full CRM for a company to a family genealogy site. Now I make handcrafted websites for local businesses: one at a time, in small batches, with a lot of care.</p>
+      <p>When I'm not building, I'm probably being supervised by Cosette, the studio cat.</p>
+      <div class="facts">
+        <span>🗽 New York</span><span>🇬🇧 Lived in England</span><span>🏔️ Anchorage, this year</span><span>🐈 Cat person</span><span>🧁 Former baker</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Four easy steps.</h2>
+    <p class="sub">You stay in charge the whole way. Nothing goes live until you love it.</p>
+    <div class="steps">
+      <div class="step"><h3>Free check</h3><p>I review your current site and send you a short video with honest feedback.</p></div>
+      <div class="step"><h3>Plan &amp; quote</h3><p>We agree on exactly what's included, for a fixed price.</p></div>
+      <div class="step"><h3>Build</h3><p>I build it, you review it, and we tweak until it feels like you.</p></div>
+      <div class="step"><h3>Care</h3><p>After launch I'm a text away for updates, wherever I am.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Get in touch</div>
+      <h2>Get your free website check.</h2>
+      <p class="sub">Tell me a little about your business and I'll send back a short video review within two days. No pressure, no sales pitch.</p>
+      <p class="note">Prefer email? <strong>hello@smallbatch.studio</strong></p>
+    </div>
+    <form id="f">
+      <label>Your name<input name="name" required></label>
+      <label>Business name<input name="biz" required></label>
+      <label>Current website (if you have one)<input name="site" placeholder="www.example.com"></label>
+      <label>Email<input name="email" type="email" required></label>
+      <label>What's bugging you about your site?<textarea name="msg"></textarea></label>
+      <button class="btn" type="submit">Send my request</button>
+      <div class="thanks" id="thanks">Thanks! This is a preview, so the form isn't connected yet. It will be once the site goes live.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo"><svg><use href="#cat"/></svg>Small Batch Studio</a>
+    <div>© 2026 Small Batch Studio · Michal Ulmer · Anchorage, AK</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('f').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('thanks').style.display='block';
+  });
+</script>
+</body>
+</html>
