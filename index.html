@@ -129,12 +129,20 @@
   /* kind words */
   .kind{padding-top:24px}
   .kind h2{font-size:clamp(32px,4vw,46px);margin-bottom:4px}
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
+  .quotes{overflow:hidden;text-align:left;padding:6px 0}
+  .track{display:flex;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .slide{flex:0 0 100%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 2px}
+  .track{gap:0}.quotes{margin:0 -2px}
+  .qnav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px}
+  .qbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--rose-soft);background:var(--card);color:var(--rose);font-size:18px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+  .qbtn:hover{background:var(--rose);color:var(--cream);transform:scale(1.06)}
+  .qdots{display:flex;gap:8px}.qdots i{width:7px;height:7px;border-radius:50%;background:var(--rose-soft);transition:background .3s,transform .3s}
+  .qdots i.on{background:var(--rose);transform:scale(1.3)}
   .q{background:var(--card);padding:26px 24px;margin:0;display:flex;flex-direction:column}
   .q .stars{color:var(--butter-deep);letter-spacing:.12em;font-size:15px;margin-bottom:10px}
   .q blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px;line-height:1.35;color:var(--ink);margin-bottom:14px}
   .q figcaption{margin-top:auto;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
-  @media (max-width:900px){.quotes{grid-template-columns:1fr}}
+  @media (max-width:900px){.slide{grid-template-columns:1fr}}
 
   /* gentle motion */
   .pkg,.add,.perk,.q,.case{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,background-color .35s}
@@ -453,10 +461,29 @@
     <div class="eyebrow">From my bakery days</div>
     <h2>5.0 stars across 31 reviews.</h2><div class="heart"><i></i>&hearts;<i></i></div>
     <p class="sub">Websites are new for me. Taking care of customers isn't. Here's what Butter Lush Bakes customers said on Etsy.</p>
-    <div class="quotes">
-      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Michal is the best. She makes a custom order for me every year. She never disappoints.</blockquote><figcaption>Candace &middot; repeat customer</figcaption></figure>
-      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Great, quick communication and arrived exactly when requested. Thank you for making my dessert planning so easy!</blockquote><figcaption>Kristen</figcaption></figure>
-      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Included were sweet personal touches, like a hand-written note from the baker.</blockquote><figcaption>Rachael</figcaption></figure>
+    <div class="quotes" id="quotes">
+      <div class="track">
+        <div class="slide">
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Michal is the best. She makes a custom order for me every year. She never disappoints.</blockquote><figcaption>Candace &middot; repeat customer</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Great, quick communication and arrived exactly when requested. Thank you for making my dessert planning so easy!</blockquote><figcaption>Kristen</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Included were sweet personal touches, like a hand-written note from the baker.</blockquote><figcaption>Rachael</figcaption></figure>
+        </div>
+        <div class="slide">
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>She made cookies that were special to me and she had to research them. She nailed it!</blockquote><figcaption>Candace</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Michal was so great to work with and ensured a quick delivery with a few extra pieces in case any cookies arrived broken. Highly recommend.</blockquote><figcaption>Sandra</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>The seller was very very helpful and worked hard to ensure these cookies made it in time for my daughter's first birthday party!</blockquote><figcaption>Jessie</figcaption></figure>
+        </div>
+        <div class="slide">
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>I was so impressed, I even ordered a third batch to try them myself.</blockquote><figcaption>Amanda</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Thank you so much for this speedy order. Not one cookie was broken. All were Instagram perfect.</blockquote><figcaption>Jon</figcaption></figure>
+          <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Great customer service. She went above and beyond to make sure delivery was on time.</blockquote><figcaption>Etsy buyer</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="qnav">
+      <button class="qbtn" id="qprev" aria-label="Previous reviews">&larr;</button>
+      <div class="qdots"><i class="on"></i><i></i><i></i></div>
+      <button class="qbtn" id="qnext" aria-label="More reviews">&rarr;</button>
     </div>
   </div>
 </section>
@@ -511,6 +538,10 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
     els.forEach(function(el){if(el.closest('.hero'))return;el.classList.add('reveal');io.observe(el);});
   })();
+  (function(){var t=document.querySelector('#quotes .track');if(!t)return;var d=document.querySelectorAll('.qdots i'),n=d.length,i=0;
+    function go(k){i=(k+n)%n;t.style.transform='translateX(-'+(i*100)+'%)';d.forEach(function(x,j){x.classList.toggle('on',j===i)});}
+    document.getElementById('qnext').onclick=function(){go(i+1)};document.getElementById('qprev').onclick=function(){go(i-1)};
+    d.forEach(function(x,j){x.onclick=function(){go(j)}});})();
   var fl=document.getElementById('flip');fl.addEventListener('click',function(){if(!matchMedia('(hover: hover)').matches)fl.classList.toggle('on')});
   document.getElementById('f').addEventListener('submit', function(e){
     e.preventDefault();
