@@ -94,6 +94,13 @@
   .strip figure{flex:0 0 auto;height:440px;scroll-snap-align:start;overflow:hidden;background:#ddd}
   .strip img{height:100%;width:auto;transition:transform .7s}
   .strip figure:hover img{transform:scale(1.04)}
+  .stripbox{position:relative}
+  .stripbox .ar{position:absolute;top:calc(50% - 13px);transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--ink);font-size:20px;cursor:pointer;z-index:2;opacity:0;transition:opacity .3s,background .25s,color .25s;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .stripbox .ar.l{left:22px}.stripbox .ar.r{right:22px}
+  .stripbox:hover .ar,.stripbox .ar:focus-visible{opacity:1}
+  .stripbox .ar:hover{background:var(--ink);color:#fff}
+  .stripbox .ar[disabled]{opacity:0!important;pointer-events:none}
+  @media (hover:none){.stripbox .ar{opacity:.9;width:44px;height:44px;font-size:17px}}
   .stripnav{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
   .arrows{display:flex;gap:10px}
   .arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:none;font-size:18px;cursor:pointer;transition:background .25s,color .25s}
@@ -346,6 +353,8 @@
   <div class="wrap">
     <div class="shead rv"><div class="n">03 / Work</div><h2 class="display">Our work</h2></div>
   </div>
+  <div class="stripbox">
+  <button class="ar l" id="sl" aria-label="Previous photos">&larr;</button><button class="ar r" id="sr" aria-label="Next photos">&rarr;</button>
   <div class="strip" id="strip">
     <figure><img src="g7.jpg" alt="Pink and purple vivids"></figure>
     <figure><img src="g9.jpg" alt="Blonde waves"></figure>
@@ -360,7 +369,8 @@
     <figure><img src="g11.jpg" alt="Long blonde waves"></figure>
     <figure><img src="g10.jpg" alt="Curls"></figure>
   </div>
-  <div class="wrap stripnav"><a class="ghost" href="https://www.instagram.com/salon.ivy_ak/" target="_blank" rel="noopener">More on Instagram @salon.ivy_ak</a><div class="arrows"><button id="sl" aria-label="Scroll back">&larr;</button><button id="sr" aria-label="Scroll forward">&rarr;</button></div></div>
+  </div>
+  <div class="wrap stripnav"><a class="ghost" href="https://www.instagram.com/salon.ivy_ak/" target="_blank" rel="noopener">More on Instagram @salon.ivy_ak</a></div>
 </section>
 
 
@@ -546,6 +556,7 @@
   var s=document.getElementById('strip');
   document.getElementById('sr').onclick=function(){s.scrollBy({left:s.clientWidth*.7,behavior:'smooth'})};
   document.getElementById('sl').onclick=function(){s.scrollBy({left:-s.clientWidth*.7,behavior:'smooth'})};
+  var bl=document.getElementById('sl'),br=document.getElementById('sr');function ends(){bl.disabled=s.scrollLeft<8;br.disabled=s.scrollLeft+s.clientWidth>=s.scrollWidth-8}s.addEventListener('scroll',ends,{passive:true});addEventListener('resize',ends);addEventListener('hashchange',function(){setTimeout(ends,50)});ends();
 })();
 </script>
 </body>
