@@ -105,6 +105,13 @@
   .shot .dots i{width:8px;height:8px;border-radius:50%;background:#DCCFB8}
   .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
   .case .no{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+  .choose{margin-top:18px;padding:26px 28px;border-top:1px solid var(--rose-soft);border-bottom:1px solid var(--rose-soft)}
+  .choose .no{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+  .choose .opts{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .choose h3{font-size:24px;margin-bottom:2px}
+  .choose p{color:var(--muted);font-size:15px}
+  .choose .fine{margin-top:14px;font-size:14.5px;font-style:italic}
+  @media (max-width:760px){.choose .opts{grid-template-columns:1fr;gap:14px}}
   /* add-ins */
   .addins{padding-top:0}
   .grid-add{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -282,20 +289,28 @@
         <div class="no">No. 03 · Most loved</div>
         <h3>New site</h3>
         <div class="price">$1,200 <small>starting</small></div>
-        <p>A brand new site built from scratch, usually live in 1 to 2 weeks.</p>
-        <ul><li>Up to 5 pages</li><li>Copywriting help</li><li>Google-ready setup</li></ul>
+        <p>A brand new site built from scratch on your own domain, usually live in 1 to 2 weeks.</p>
+        <ul><li>Up to 5 pages</li><li>Copywriting help</li><li>Google-ready setup</li><li>Hand-built or Squarespace, your choice</li></ul>
       </div>
       <div class="pkg label">
         <div class="no">No. 04</div>
         <h3>Care plan</h3>
-        <div class="price">$50 <small>/ month</small></div>
-        <p>I keep your site up to date so you never have to think about it.</p>
-        <ul><li>Hours, menu &amp; photo updates</li><li>Fixes &amp; backups</li><li>Just send a text</li></ul>
+        <div class="price">$40 <small>/ month</small></div>
+        <p>I keep your site up to date so you never have to think about it. Optional, cancel anytime.</p>
+        <ul><li>Hosting &amp; backups</li><li>Up to 1 hour of updates a month</li><li>Just send a text</li><li>Or pay as you go: $60 per update</li></ul>
       </div>
     </div>
   <div class="perks">
       <div class="perk label"><div class="no">Need it sooner?</div><h3>Rush delivery</h3><p>Opening soon or have a big event coming up? I can launch a new site in as little as 3 business days for an extra 25%, once I have your photos and details.</p></div>
       <div class="perk label founding"><div class="no">Founding batch &middot; 5 spots</div><h3>Founding client pricing</h3><p>I'm just getting started, so my first five clients get <strong>25% off</strong> any package. In return, I ask for an honest testimonial and permission to show your site in my portfolio.</p><a href="#contact" class="btn small">Claim a spot</a></div>
+    </div>
+    <div class="choose">
+      <div class="no">Two ways to build</div>
+      <div class="opts">
+        <div><h3>Hand-built</h3><p>Custom made, fast, and free to host. I handle every change for you, so it pairs nicely with the care plan.</p></div>
+        <div><h3>Squarespace</h3><p>Built on a platform you can edit yourself. You pay Squarespace directly, usually $20 to $30 a month.</p></div>
+      </div>
+      <p class="fine">Either way, your domain stays in your name. Don't have one yet? I'll help you buy one, usually $15 to $20 a year.</p>
     </div>
   </div>
 </section>
