@@ -91,6 +91,14 @@
   .pkg li{padding:4px 0 4px 20px;position:relative}
   .pkg li:before{content:"\2665";position:absolute;left:0;top:5px;font-size:10px;color:var(--rose)}
 
+  .perks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .perk{background:var(--card);padding:26px 24px}
+  .perk h3{font-size:26px;margin-bottom:4px}
+  .perk p{color:var(--muted);font-size:15px;margin-bottom:0}
+  .perk .no{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+  .perk.founding{background:var(--cream)}
+  .perk.founding p{margin-bottom:16px}.perk strong{color:var(--rose)}
+  @media (max-width:760px){.perks{grid-template-columns:1fr}}
   /* add-ins */
   .addins{padding-top:0}
   .grid-add{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -260,24 +268,28 @@
       <div class="pkg label">
         <div class="no">No. 02</div>
         <h3>Refresh</h3>
-        <div class="price">$750 <small>starting</small></div>
+        <div class="price">$500 <small>starting</small></div>
         <p>A fresh look and clearer pages on the platform you already have.</p>
         <ul><li>Mobile-friendly redesign</li><li>Rewritten key pages</li><li>Faster load times</li></ul>
       </div>
       <div class="pkg label feature">
         <div class="no">No. 03 · Most loved</div>
         <h3>New site</h3>
-        <div class="price">$1,800 <small>starting</small></div>
-        <p>A brand new site built from scratch, live in about two weeks.</p>
+        <div class="price">$1,200 <small>starting</small></div>
+        <p>A brand new site built from scratch, usually live in 1 to 2 weeks.</p>
         <ul><li>Up to 5 pages</li><li>Copywriting help</li><li>Google-ready setup</li></ul>
       </div>
       <div class="pkg label">
         <div class="no">No. 04</div>
         <h3>Care plan</h3>
-        <div class="price">$75 <small>/ month</small></div>
+        <div class="price">$50 <small>/ month</small></div>
         <p>I keep your site up to date so you never have to think about it.</p>
         <ul><li>Hours, menu &amp; photo updates</li><li>Fixes &amp; backups</li><li>Just send a text</li></ul>
       </div>
+    </div>
+  <div class="perks">
+      <div class="perk label"><div class="no">Need it sooner?</div><h3>Rush delivery</h3><p>Opening soon or have a big event coming up? I can launch a new site in as little as 3 business days for an extra 25%, once I have your photos and details.</p></div>
+      <div class="perk label founding"><div class="no">Founding batch &middot; 5 spots</div><h3>Founding client pricing</h3><p>I'm just getting started, so my first five clients get <strong>25% off</strong> any package. In return, I ask for an honest testimonial and permission to show your site in my portfolio.</p><a href="#contact" class="btn small">Claim a spot</a></div>
     </div>
   </div>
 </section>
@@ -288,14 +300,14 @@
     <h2 style="font-size:clamp(32px,4vw,46px);margin-bottom:4px">Everything your customers look for, baked right in.</h2><div class="heart"><i></i>&hearts;<i></i></div>
     <p class="sub">Every business is different, so every site gets the pieces it actually needs. Here are some favorites.</p>
     <div class="grid-add">
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><h3>Menus</h3><p>Easy to read on a phone and easy to update when prices or specials change.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><h3>Online booking</h3><p>Let customers book an appointment or reserve a table, any time of day.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 12h-11z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><h3>Online ordering</h3><p>Connect the ordering or delivery service you already use, front and center.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><h3>Maps &amp; directions</h3><p>A map, your hours, and one tap to get directions straight to your door.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg><h3>Photos &amp; slideshows</h3><p>Show off your food, work or space with galleries that load fast.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><h3>Tap to call or text</h3><p>Phone numbers and buttons that work with one tap on any phone.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>"Open now" hours</h3><p>Hours that tell visitors right away if you're open, so they never have to guess.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/></svg><h3>Reviews &amp; press</h3><p>Put your best reviews, star rating and press mentions where people can see them.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><h3>Menus</h3><p>Easy to read on a phone, with tabs or filters so people jump straight to what they want.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><h3>Booking &amp; ordering</h3><p>One tap to book an appointment, reserve a table or order pickup, using the service you already have.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg><h3>Photos that sell</h3><p>Swipeable slideshows, full-screen galleries and before-and-after sliders that make people want to come see it in person.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><h3>Maps &amp; tap to call</h3><p>Directions, parking tips and a phone number that dials with one tap.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><h3>Found on Google</h3><p>Set up so you show up when locals search, with your Google profile and listing polished to match.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/></svg><h3>Reviews &amp; press</h3><p>Your star rating, best reviews and press mentions, right where new customers will see them.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><h3>Instagram feed</h3><p>Your latest posts show up on your site automatically, so it always feels fresh.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11H4z"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9z"/></svg><h3>Specials <h3>Specials, events &amp; gift cards</h3>amp; gift cards</h3><p>A specials board you can update from your phone, plus an events calendar and gift card link.</p></div>
     </div>
     <p class="more">Need something that isn't here? <a href="#contact">Just ask</a>. If it helps your customers, I can probably make it.</p>
   </div>
