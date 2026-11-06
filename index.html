@@ -126,6 +126,32 @@
   .shot .dots i{width:8px;height:8px;border-radius:50%;background:#DCCFB8}
   .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
   .case .no{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
+  /* kind words */
+  .kind{padding-top:24px}
+  .kind h2{font-size:clamp(32px,4vw,46px);margin-bottom:4px}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
+  .q{background:var(--card);padding:26px 24px;margin:0;display:flex;flex-direction:column}
+  .q .stars{color:var(--butter-deep);letter-spacing:.12em;font-size:15px;margin-bottom:10px}
+  .q blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:21px;line-height:1.35;color:var(--ink);margin-bottom:14px}
+  .q figcaption{margin-top:auto;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+  @media (max-width:900px){.quotes{grid-template-columns:1fr}}
+
+  /* gentle motion */
+  .pkg,.add,.perk,.q,.case{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,background-color .35s}
+  .pkg:hover,.perk:hover{transform:translateY(-6px);border-color:var(--rose);box-shadow:0 22px 40px -26px rgba(192,121,107,.75)}
+  .pkg:hover:after,.perk:hover:after{border-color:rgba(192,121,107,.45)}
+  .pkg:not(.feature):hover{background:#FFF9EC}
+  .pkg li:before{transition:transform .35s}
+  .pkg:hover li:before{transform:scale(1.35)}
+  .add:hover{transform:translateY(-3px);border-color:var(--rose)}
+  .add svg{transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+  .add:hover svg{transform:rotate(-8deg) scale(1.15)}
+  .q:hover,.case:hover{transform:translateY(-4px)}
+  .step:before{transition:transform .4s cubic-bezier(.3,1.6,.5,1),background-color .3s}
+  .step:hover:before{transform:scale(1.12) rotate(-6deg);background:#F2D77E}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.pkg,.add,.perk,.q,.case,.add svg,.step:before{transition:none}}
   /* add-ins */
   .addins{padding-top:0}
   .grid-add{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -406,9 +432,38 @@
     <div>
       <div class="eyebrow">Hi, I'm Michal</div>
       <h2>A small business owner who builds websites for small businesses.</h2><div class="heart"><i></i>&hearts;<i></i></div>
-      <p>I'm a New Yorker who spent part of my childhood on a horse farm in England, and these days I split my time between New York City and Anchorage. Before this, I spent five years at a venture capital firm in NYC and ran an Etsy bakery called Butter Lush Bakes. I loved baking for people, but most of them found me through Etsy instead of my own website, so I know how much it matters to have a simple place that brings customers straight to you.</p>
+      <p>I'm a New Yorker who spent part of my childhood on a horse farm in England, and these days I split my time between New York City and Anchorage. Before this, I spent five years in investor relations at a venture capital firm in NYC, where my favorite part of the job was designing presentations and decks. I also ran an Etsy bakery called Butter Lush Bakes. I loved baking for people, but most of them found me through Etsy instead of my own website, so I know how much it matters to have a simple place that brings customers straight to you.</p>
       <p>I've built everything from a full CRM for a company to a family genealogy site. Now I make handmade websites for local businesses: one at a time, in small batches, with a lot of care.</p>
-      <p>When I'm not building, I'm traveling, baking for family and friends, or being supervised by Cosette, the studio cat.</p>
+      <p>I've always needed a creative outlet. In England I had my own little craft room, where I made a bit of everything. When I'm not building websites, I'm hiking around Anchorage, trying new restaurants, traveling, baking for family and friends, or being supervised by Cosette, the studio cat.</p>
+    </div>
+  </div>
+</section>
+
+<section class="kind" id="kind-words">
+  <div class="wrap center">
+    <div class="eyebrow">From my bakery days</div>
+    <h2>5.0 stars across 31 reviews.</h2><div class="heart"><i></i>&hearts;<i></i></div>
+    <p class="sub">Websites are new for me. Taking care of customers isn't. Here's what Butter Lush Bakes customers said on Etsy.</p>
+    <div class="quotes">
+      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Michal is the best. She makes a custom order for me every year. She never disappoints.</blockquote><figcaption>Candace &middot; repeat customer</figcaption></figure>
+      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Great, quick communication and arrived exactly when requested. Thank you for making my dessert planning so easy!</blockquote><figcaption>Kristen</figcaption></figure>
+      <figure class="q label"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Included were sweet personal touches, like a hand-written note from the baker.</blockquote><figcaption>Rachael</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="ing"><div class="wrap"><p><b>INGREDIENTS:</b> thoughtful design, honest pricing, a pinch of whimsy &amp; plenty of care.</p></div></div>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Four easy steps.</h2><div class="heart"><i></i>&hearts;<i></i></div>
+    <p class="sub">You stay in charge the whole way. Nothing goes live until you love it.</p>
+    <div class="steps">
+      <div class="step"><h3>Free check</h3><p>I review your current site and send you a short video with honest feedback.</p></div>
+      <div class="step"><h3>Plan &amp; quote</h3><p>We agree on exactly what's included, for a fixed price.</p></div>
+      <div class="step"><h3>Build</h3><p>I build it, you review it, and we tweak until it feels like you.</p></div>
+      <div class="step"><h3>Care</h3><p>After launch I'm a text away for updates, wherever I am.</p></div>
     </div>
   </div>
 </section>
@@ -441,6 +496,12 @@
 </footer>
 
 <script>
+  (function(){
+    var els=document.querySelectorAll('section h2, .grid3, .grid4, .perks, .grid-add, .grid2, .quotes, .steps, .give-card, .about .photo, .contact form');
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+    els.forEach(function(el){if(el.closest('.hero'))return;el.classList.add('reveal');io.observe(el);});
+  })();
   var fl=document.getElementById('flip');fl.addEventListener('click',function(){if(!matchMedia('(hover: hover)').matches)fl.classList.toggle('on')});
   document.getElementById('f').addEventListener('submit', function(e){
     e.preventDefault();
