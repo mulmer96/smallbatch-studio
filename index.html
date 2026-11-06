@@ -99,6 +99,12 @@
   .perk.founding{background:var(--cream)}
   .perk.founding p{margin-bottom:16px}.perk strong{color:var(--rose)}
   @media (max-width:760px){.perks{grid-template-columns:1fr}}
+  .case{display:block}
+  .shot{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 14px 30px -20px rgba(59,51,48,.45);margin-bottom:16px}
+  .shot .dots{display:flex;gap:5px;padding:8px 10px;background:#F3ECDF}
+  .shot .dots i{width:8px;height:8px;border-radius:50%;background:#DCCFB8}
+  .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+  .case .no{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:4px}
   /* add-ins */
   .addins{padding-top:0}
   .grid-add{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -202,7 +208,7 @@
 
 <nav>
   <div class="wrap">
-    <a href="#top" class="logo"><svg><use href="#cat"/></svg>Small Batch Studio</a>
+    <a href="#top" class="logo">Small Batch Studio</a>
     <ul>
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
@@ -301,13 +307,13 @@
     <p class="sub">Every business is different, so every site gets the pieces it actually needs. Here are some favorites.</p>
     <div class="grid-add">
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><h3>Menus</h3><p>Easy to read on a phone, with tabs or filters so people jump straight to what they want.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><h3>Booking &amp; ordering</h3><p>One tap to book an appointment, reserve a table or order pickup, using the service you already have.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><h3>Booking, ordering &amp; delivery</h3><p>One tap to book, reserve a table, or order pickup and delivery through DoorDash, Uber Eats or whatever you already use.</p></div>
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg><h3>Photos that sell</h3><p>Swipeable slideshows, full-screen galleries and before-and-after sliders that make people want to come see it in person.</p></div>
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><h3>Maps &amp; tap to call</h3><p>Directions, parking tips and a phone number that dials with one tap.</p></div>
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><h3>Found on Google</h3><p>Set up so you show up when locals search, with your Google profile and listing polished to match.</p></div>
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 9.4l6-.9z"/></svg><h3>Reviews &amp; press</h3><p>Your star rating, best reviews and press mentions, right where new customers will see them.</p></div>
       <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><h3>Instagram feed</h3><p>Your latest posts show up on your site automatically, so it always feels fresh.</p></div>
-      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11H4z"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9z"/></svg><h3>Specials <h3>Specials, events &amp; gift cards</h3>amp; gift cards</h3><p>A specials board you can update from your phone, plus an events calendar and gift card link.</p></div>
+      <div class="add label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v11H4z"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9z"/></svg><h3>Specials &amp; gift cards</h3><p>A specials board you can update from your phone, plus an events calendar and gift card link.</p></div>
     </div>
     <p class="more">Need something that isn't here? <a href="#contact">Just ask</a>. If it helps your customers, I can probably make it.</p>
   </div>
@@ -331,17 +337,19 @@
   <div class="wrap">
     <div class="eyebrow">Recent work</div>
     <h2>Fresh out of the oven.</h2><div class="heart"><i></i>&hearts;<i></i></div>
-    <p class="sub">Before-and-after redesigns for local businesses. More coming soon.</p>
+    <p class="sub">Concept redesigns for local businesses, made to show what's possible. More coming soon.</p>
     <div class="grid2">
       <div class="case label">
-        <div class="ba"><div class="before">Before</div><div class="after">After</div></div>
-        <h3>Demo redesign #1</h3>
-        <p>Placeholder: a local Anchorage business, redesigned.</p>
+        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><img src="work-rays.jpg" alt="Concept redesign of Ray's Place website" loading="lazy"></div>
+        <div class="no">Restaurant &middot; Anchorage</div>
+        <h3>Ray's Place</h3>
+        <p>A family-run Vietnamese restaurant: online ordering up front, a full menu that's easy on phones, and their story told properly.</p>
       </div>
       <div class="case label">
-        <div class="ba"><div class="before">Before</div><div class="after">After</div></div>
-        <h3>Demo redesign #2</h3>
-        <p>Placeholder: a second local business, redesigned.</p>
+        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><img src="work-ivy.jpg" alt="Concept redesign of Salon Ivy website" loading="lazy"></div>
+        <div class="no">Hair salon &middot; Anchorage</div>
+        <h3>Salon Ivy</h3>
+        <p>A calm, elegant salon site with services and prices in one place and a Book Now button on every page.</p>
       </div>
     </div>
   </div>
@@ -385,7 +393,7 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo"><svg><use href="#cat"/></svg>Small Batch Studio</a>
+    <a href="#top" class="logo">Small Batch Studio</a>
     <div>© 2026 Small Batch Studio · Michal Ulmer · Anchorage &amp; New York</div>
   </div>
 </footer>
