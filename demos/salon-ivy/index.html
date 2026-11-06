@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Salon Ivy · Anchorage hair salon (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111312;--paper:#F3F1EC;--mint:#4FD1A5;--mint-d:#1E8E68;--grey:#6E716F;--line:rgba(17,19,18,.14)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .disc{background:var(--ink);color:#bfc3c1;font-size:12px;text-align:center;padding:7px 12px}
+  .disc a{color:var(--mint)}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+  .display{font-family:"Inter Tight",sans-serif;font-weight:900;letter-spacing:-.045em;line-height:.88;text-transform:uppercase}
+  .mono{font-family:"Inter Tight",sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:30;background:rgba(243,241,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  nav .logo img{height:50px}
+  nav ul{display:flex;gap:34px;list-style:none;align-items:center}
+  nav ul a{text-decoration:none;font-family:"Inter Tight";font-weight:600;font-size:14px}
+  nav ul a:hover{color:var(--mint-d)}
+  .pill{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff!important;text-decoration:none;font-family:"Inter Tight";font-weight:600;font-size:14px;padding:12px 20px;border-radius:999px;transition:background .25s,color .25s}
+  .pill:hover{background:var(--mint);color:var(--ink)!important}
+  .pill i{font-style:normal;transition:transform .25s}.pill:hover i{transform:translateX(4px)}
+
+  /* hero */
+  .hero{padding:56px 0 0;overflow:hidden}
+  .hero .meta{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:28px;color:var(--grey)}
+  .hero h1{font-size:clamp(64px,13.2vw,196px);position:relative;z-index:1}
+  .hero h1 .m{color:var(--mint-d)}
+  .hero h1 .o{-webkit-text-stroke:2px var(--ink);color:transparent}
+  .hero .row{display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:14px;margin-top:40px;align-items:end}
+  .hero .row figure{overflow:hidden;background:#ddd}
+  .hero .row img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .hero .row figure:hover img{transform:scale(1.05)}
+  .hero .f1{height:300px}.hero .f2{height:420px}.hero .f3{height:340px}
+  .hero .intro{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;padding:4px 0 4px 18px;border-left:1px solid var(--line)}
+  .hero .intro p{font-size:20px;line-height:1.45;font-weight:500;letter-spacing:-.01em}
+  .hero .intro .acts a,.tile div{position:relative;z-index:3}
+  .hero .intro .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .ghost{display:inline-flex;align-items:center;font-family:"Inter Tight";font-weight:600;font-size:14px;padding:12px 20px;border-radius:999px;border:1.5px solid var(--ink);text-decoration:none;transition:background .25s,color .25s}
+  .ghost:hover{background:var(--ink);color:#fff}
+
+  /* ticker of specialties */
+  .spec{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:64px;display:grid;grid-template-columns:repeat(5,1fr)}
+  .spec div{padding:20px 18px;font-family:"Inter Tight";font-weight:800;font-size:22px;letter-spacing:-.02em;border-right:1px solid var(--line);display:flex;gap:10px;align-items:baseline}
+  .spec div:last-child{border-right:0}
+  .spec small{font-size:11px;font-weight:600;color:var(--grey);letter-spacing:.1em}
+
+  /* section heads */
+  section{padding:120px 0}
+  .shead{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:22px;margin-bottom:56px}
+  .shead .n{font-family:"Inter Tight";font-weight:800;font-size:15px;color:var(--mint-d)}
+  .shead h2{font-size:clamp(48px,7vw,104px)}
+  .shead p{max-width:330px;color:var(--grey);font-size:15px;text-align:right}
+
+  /* services */
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .menu .col{padding:0 32px;border-left:1px solid var(--line)}
+  .menu .col:first-child{padding-left:0;border-left:0}
+  .menu h3{font-family:"Inter Tight";font-weight:800;font-size:28px;letter-spacing:-.02em;margin-bottom:18px}
+  .menu .sub{color:var(--grey);font-size:14px;margin-bottom:22px}
+  .menu .r{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:16px}
+  .menu .r span:last-child{font-family:"Inter Tight";font-weight:600;white-space:nowrap}
+  .menu .r:hover span:first-child{color:var(--mint-d)}
+  .fine{margin-top:40px;color:var(--grey);font-size:14px;max-width:720px}
+
+  /* team: index list */
+  .team{background:var(--ink);color:var(--paper)}
+  .team .shead{border-color:rgba(243,241,236,.5)}
+  .team .shead p{color:#9aa09d}
+  .team .shead .n{color:var(--mint)}
+  .ppl .p{display:grid;grid-template-columns:150px 360px 220px 1fr;gap:30px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(243,241,236,.16);transition:padding .35s}
+  .ppl .p:hover{padding-left:14px}
+  .ppl .ph{width:150px;height:170px;overflow:hidden}
+  .ppl .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .5s,transform .6s}
+  .ppl .p:hover .ph img{filter:none;transform:scale(1.04)}
+  .ppl h3{font-size:clamp(36px,4.6vw,62px);white-space:nowrap}
+  .ppl .p:hover h3{color:var(--mint)}
+  .ppl .role{color:var(--mint)}
+  .ppl p{color:#c9ccca;font-size:15px}
+
+  /* work: horizontal strip */
+  .work{padding-bottom:80px}
+  .strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 40px 26px;scrollbar-width:thin}
+  .strip figure{flex:0 0 auto;height:440px;scroll-snap-align:start;overflow:hidden;background:#ddd}
+  .strip img{height:100%;width:auto;transition:transform .7s}
+  .strip figure:hover img{transform:scale(1.04)}
+  .stripnav{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+  .arrows{display:flex;gap:10px}
+  .arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:none;font-size:18px;cursor:pointer;transition:background .25s,color .25s}
+  .arrows button:hover{background:var(--ink);color:#fff}
+
+  /* about */
+  .about .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
+  .about blockquote{font-family:"Inter Tight";font-weight:600;font-size:clamp(26px,2.8vw,40px);line-height:1.15;letter-spacing:-.025em}
+  .about blockquote em{font-style:normal;background:linear-gradient(transparent 62%,var(--mint) 62%)}
+  .about .facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:0;border-top:1px solid var(--ink)}
+  .about .facts div{padding:18px 0}
+  .about .facts b{display:block;font-family:"Inter Tight";font-weight:900;font-size:54px;letter-spacing:-.04em;line-height:1}
+  .about .facts span{color:var(--grey);font-size:13px}
+  .about .txt p{margin-bottom:16px;color:#3b3f3d}
+  .about .ph{font-style:italic;color:var(--grey);font-size:14px}
+  .about .txt img{width:100%;height:340px;object-fit:cover;margin-bottom:26px}
+
+  /* visit */
+  .visit{background:var(--mint);padding:110px 0}
+  .visit .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:70px}
+  .visit .big{font-size:clamp(44px,6.4vw,92px);margin:10px 0 34px;white-space:nowrap}
+  .visit .big a{text-decoration:none}
+  .visit .big a:hover{-webkit-text-stroke:2px var(--ink);color:transparent}
+  .visit dl{display:grid;grid-template-columns:auto 1fr;gap:10px 28px;font-size:17px}
+  .visit dt{font-family:"Inter Tight";font-weight:800}
+  .visit dd a{text-decoration-thickness:1px;text-underline-offset:3px}
+  form.req{display:grid;gap:4px}
+  form.req h3{font-family:"Inter Tight";font-weight:800;font-size:30px;letter-spacing:-.02em;margin-bottom:6px}
+  form.req .sub{font-size:15px;margin-bottom:18px}
+  .req .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .req input,.req textarea{font:inherit;font-size:16px;background:none;border:0;border-bottom:1.5px solid var(--ink);padding:14px 0;color:var(--ink);width:100%;border-radius:0;resize:vertical}
+  .req input::placeholder,.req textarea::placeholder{color:rgba(17,19,18,.6)}
+  .req input:focus,.req textarea:focus{outline:none;border-bottom-width:3px}
+  .req button{justify-self:start;margin-top:22px;border:0;cursor:pointer}
+  .thanks{font-family:"Inter Tight";font-weight:800;font-size:28px;padding:40px 0}
+
+  footer{background:var(--ink);color:#9aa09d;padding:60px 0 30px;font-size:14px}
+  footer .top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;border-bottom:1px solid rgba(243,241,236,.16);padding-bottom:30px;margin-bottom:22px}
+  footer .word{font-size:clamp(60px,12vw,170px);color:var(--paper)}
+  footer .soc{display:flex;gap:24px}
+  footer .soc a{color:var(--paper);text-decoration:none;font-family:"Inter Tight";font-weight:600}
+  footer .soc a:hover{color:var(--mint)}
+  footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .mbtn{display:none;align-items:center;gap:8px;background:none;border:1.5px solid var(--ink);border-radius:999px;padding:10px 16px;font:600 14px "Inter Tight";cursor:pointer;color:var(--ink)}
+  .vine{position:absolute;right:max(30px,calc(50% - 470px));top:20px;width:400px;bottom:0;z-index:2;pointer-events:none;overflow:visible}
+  #vstem{stroke:#2F6B4F;stroke-width:2.4;stroke-linecap:round}
+  .vine .tendril{fill:none;stroke:#2F6B4F;stroke-width:1.4;stroke-linecap:round}
+  .vine .lf{transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s cubic-bezier(.3,1.6,.5,1),opacity .5s;opacity:0}
+  .vine .lf.on{opacity:1}
+  .vine .sw{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite alternate}
+  @keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(6deg)}}
+  @media(max-width:900px){.vine{right:-34px;top:130px;width:150px}}
+  @media (prefers-reduced-motion:reduce){.vine .sw{animation:none}}
+  .pg{display:none}.pg.on{display:block}
+  section.pg{min-height:70vh}
+  nav ul a.on:not(.pill){color:var(--mint-d);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+  .tiles{padding:70px 0 110px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .tile{position:relative;display:block;height:380px;overflow:hidden;text-decoration:none;color:var(--ink);border-radius:4px;transition:transform .4s}
+  .tile:hover{transform:translateY(-6px)}
+  .t1{background:#1E8E68;color:var(--paper)}.t2{background:#CDEBDD}.t3{background:var(--ink);color:var(--paper)}
+  .tile div{position:absolute!important;left:0;right:0;bottom:0;padding:22px;display:flex;align-items:end;gap:14px}
+  .tile b{font-size:44px;flex:1}
+  .tile div i{font-style:normal;font-size:26px;transition:transform .3s}.tile:hover div i{transform:translateX(6px)}
+  .ico{position:absolute;right:30px;top:30px;width:150px;height:150px;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .7s cubic-bezier(.3,1.5,.5,1)}
+  .ico .f{fill:currentColor}
+  .t1 .ico{stroke:#4FD1A5;color:#4FD1A5}.t2 .ico{stroke:#1E8E68}.t3 .ico{stroke:#4FD1A5}
+  .tile:hover .ico{transform:rotate(-12deg) scale(1.08)}
+  .t3:hover .ico{transform:rotate(45deg) scale(1.08)}
+  .vcta h3{font-family:"Inter Tight";font-weight:800;font-size:34px;letter-spacing:-.02em;margin-bottom:8px}
+  .vcta p{margin-bottom:22px}.vcta .or{margin:18px 0 0}
+  .bookpg{padding-top:90px}
+  .bk{display:grid;grid-template-columns:200px 1fr 260px;gap:40px;align-items:start}
+  .steps{list-style:none;counter-reset:s;display:grid;gap:4px}
+  .steps li{counter-increment:s;padding:12px 0;border-bottom:1px solid var(--line);font-family:"Inter Tight";font-weight:600;color:var(--grey);display:flex;gap:12px}
+  .steps li:before{content:counter(s,decimal-leading-zero);color:var(--grey)}
+  .steps li.on{color:var(--ink)}.steps li.on:before{color:var(--mint-d)}
+  .steps li.done{color:var(--ink)}.steps li.done:before{content:"\2713";color:var(--mint-d)}
+  .stp{display:none}.stp.on{display:block;animation:fadein .45s ease-out both}
+  .stp.out{opacity:0;transform:translateY(-8px);transition:opacity .28s ease-in,transform .28s ease-in}
+  @keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .stp h3{font-family:"Inter Tight";font-weight:800;font-size:30px;letter-spacing:-.02em;margin-bottom:22px}
+  .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .opts button{font:500 16px Inter;text-align:left;padding:16px;border:1.5px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;transition:border-color .2s,background .2s;color:var(--ink)}
+  .opts button small{display:block;color:var(--grey);font-size:13px;margin-top:3px}
+  .opts button:hover{border-color:var(--ink)}
+  .hint{color:var(--grey);margin:-12px 0 18px}
+  #svcopts button{position:relative}
+  #svcopts button.sel:after{content:"\2713";position:absolute;top:12px;right:14px;width:22px;height:22px;border-radius:50%;background:var(--mint-d);color:#fff;font-size:13px;display:grid;place-items:center}
+  .opts button.sel{border-color:var(--mint-d);background:#E4F6EE;box-shadow:inset 0 0 0 1px var(--mint-d)}
+  .ppl2{grid-template-columns:repeat(2,1fr)}
+  .two2{grid-template-columns:1fr 1fr}.two2 button{padding:30px 24px}.two2 .big{font:800 24px "Inter Tight";letter-spacing:-.02em;display:block}
+  .ppl2 button{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center}
+  .ppl2 button small{grid-column:2}
+  .av{grid-row:span 2;width:44px;height:44px;border-radius:50%;background:#CDEBDD;color:var(--mint-d);display:grid;place-items:center;font:800 18px "Inter Tight"}
+  .any .av{background:var(--mint-d);color:#fff}
+  .dt{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .cal{background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:18px}
+  .calh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-family:"Inter Tight"}
+  .calh button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:none;cursor:pointer}
+  .calh button:disabled{opacity:.3;cursor:default}
+  .dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+  .dow span{font-size:12px;color:var(--grey);padding:4px 0}
+  .days button{aspect-ratio:1;border:0;background:none;border-radius:50%;font:500 15px Inter;cursor:pointer;color:var(--ink)}
+  .days button:hover:not(:disabled){background:#E4F6EE}
+  .days button:disabled{color:#c3c5c3;cursor:default;text-decoration:line-through}
+  .days button.sel{background:var(--ink);color:#fff}
+  .calnote{font-size:12px;color:var(--grey);margin-top:10px}
+  .times p{color:var(--grey);margin-bottom:14px}
+  .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .slots button{padding:11px 0;border:1.5px solid var(--line);background:#fff;border-radius:999px;font:600 14px "Inter Tight";cursor:pointer}
+  .slots button:hover{border-color:var(--ink)}.slots button.sel{background:var(--mint-d);border-color:var(--mint-d);color:#fff}
+  .slots button:disabled{opacity:.35;text-decoration:line-through;cursor:default}
+  .bknav{display:flex;justify-content:space-between;margin-top:34px;padding-top:20px;border-top:1px solid var(--line)}
+  .bknav button{cursor:pointer;background:none}.bknav .pill{border:0;background:var(--ink);color:#fff}.bknav .pill:hover:not(:disabled){background:var(--mint);color:var(--ink)}
+  .bknav .pill:disabled{opacity:1;cursor:not-allowed;background:#B9BDBA!important;color:var(--ink)!important}
+  .sum{position:sticky;top:100px;background:var(--ink);color:var(--paper);padding:24px;border-radius:8px}
+  .sum .mono{color:var(--mint);margin-bottom:14px}
+  .sum dl{display:grid;gap:4px}.sum dt{font-size:12px;color:#9aa09d;margin-top:10px}.sum dd{font-family:"Inter Tight";font-weight:600;font-size:17px}
+  .done{text-align:center;padding:30px 0}
+  .chk{width:74px;height:74px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-size:34px;margin:0 auto 18px}
+  .done p{margin-bottom:10px}.done .demo{color:var(--grey);font-size:13px;margin-bottom:24px}
+  .req.dark input,.req.dark textarea{border-color:var(--ink)}
+  @media(max-width:900px){.bk{grid-template-columns:1fr;gap:24px}.steps{grid-template-columns:repeat(5,1fr)}.steps li{font-size:11px;flex-direction:column;gap:2px;border-bottom:3px solid var(--line)}.steps li.on{border-color:var(--mint-d)}
+    .opts,.ppl2{grid-template-columns:1fr 1fr}.dt{grid-template-columns:1fr}.sum{position:static}}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  @media(max-width:900px){
+    .wrap{padding:0 20px}
+    nav ul li.hl{display:none}
+    .mbtn{display:inline-flex}
+    nav.open ul{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--ink);padding:6px 20px 18px}
+    nav.open ul li.hl{display:block;border-bottom:1px solid var(--line)}
+    nav.open ul li.hl a{display:block;padding:15px 0;font-size:20px;font-weight:800}
+    nav.open ul li:last-child{padding-top:16px}
+    .hero .meta span:nth-child(2){display:none}
+    .hero h1{font-size:14.2vw}
+    .hero .row{grid-template-columns:1fr 1fr}
+    .hero .f1,.hero .f3{height:240px}.hero .f2{height:240px}
+    .hero .f3{display:none}
+    .hero .intro{grid-column:1/-1;border-left:0;padding:10px 0 0}
+    .spec{grid-template-columns:1fr 1fr}
+    .spec div{border-bottom:1px solid var(--line)}
+    section{padding:80px 0}
+    .shead{grid-template-columns:1fr;gap:8px}
+    .shead p{text-align:left}
+    .menu{grid-template-columns:1fr;gap:40px}
+    .grid3{grid-template-columns:1fr}.tile{height:240px}
+    .menu .col{padding:0;border:0}
+    .ppl .p{grid-template-columns:100px 1fr;gap:18px}
+    .ppl h3{white-space:normal}
+    .visit .big{white-space:normal}
+    .ppl .ph{width:100px;height:120px}
+    .ppl .p > p,.ppl .role{grid-column:2}
+    .ppl .p .role{margin-top:-14px}
+    .strip{padding:0 20px 20px}.strip figure{height:320px}
+    .about .grid,.visit .grid{grid-template-columns:1fr;gap:44px}
+    .about .facts b{font-size:40px}
+    .req .two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="disc">Concept redesign by <a href="https://smallbatch.studio">Small Batch Studio</a>. Not the official Salon Ivy website.</div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home"><img src="logo.png" alt="Salon Ivy"></a>
+    <button class="mbtn" id="mbtn" aria-label="Open menu">Menu</button>
+    <ul>
+      <li class="hl"><a href="#home" data-n="home">Home</a></li>
+      <li class="hl"><a href="#services" data-n="services">Services</a></li>
+      <li class="hl"><a href="#stylists" data-n="stylists">Stylists</a></li>
+      <li class="hl"><a href="#work" data-n="work">Work</a></li>
+      <li class="hl"><a href="#visit" data-n="visit">Visit</a></li>
+      <li><a class="pill" href="#book" data-n="book">Book now <i>&rarr;</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pg" data-p="home" style="position:relative">
+<svg class="vine" id="vine" aria-hidden="true"><path id="vstem" fill="none"/><g id="vleaves"></g></svg>
+<header class="hero">
+  <div class="wrap">
+    <div class="meta mono"><span>Anchorage, Alaska</span><span>Independent since 2007</span><span></span></div>
+    <h1 class="display rv">Color.<br><span class="o">Cut.</span> <span class="m">Confidence.</span></h1>
+    <div class="row">
+      <figure class="f1 rv"><img src="g2.jpg" alt="Deep red layered cut"></figure>
+      <figure class="f2 rv"><img src="g7h.jpg" alt="Pink and purple vivid color"></figure>
+      <figure class="f3 rv"><img src="g3.jpg" alt="Ash brown waves"></figure>
+      <div class="intro rv">
+        <div class="acts"><a class="pill" href="#book">Book an appointment <i>&rarr;</i></a><a class="ghost" href="#services">See prices</a></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="tiles">
+  <div class="wrap grid3">
+    <a class="tile t1 rv" href="#services"><svg class="ico" viewBox="0 0 120 120"><circle cx="30" cy="88" r="16"/><circle cx="90" cy="88" r="16"/><path d="M41 76 L88 14 M79 76 L32 14"/><circle cx="60" cy="47" r="3" class="f"/></svg><div><span class="mono">01</span><b class="display">Services</b><i>&rarr;</i></div></a>
+    <a class="tile t2 rv" href="#stylists"><svg class="ico" viewBox="0 0 120 120"><circle cx="60" cy="38" r="20"/><path d="M24 108 C24 80 40 66 60 66 C80 66 96 80 96 108"/><path d="M40 30 C46 18 74 18 80 30"/></svg><div><span class="mono">02</span><b class="display">Stylists</b><i>&rarr;</i></div></a>
+    <a class="tile t3 rv" href="#work"><svg class="ico" viewBox="0 0 120 120"><path d="M60 10 L68 50 L108 60 L68 70 L60 110 L52 70 L12 60 L52 50 Z"/><path d="M98 14 L101 24 L111 27 L101 30 L98 40 L95 30 L85 27 L95 24 Z"/></svg><div><span class="mono">03</span><b class="display">Our work</b><i>&rarr;</i></div></a>
+  </div>
+</section>
+</div>
+
+<section class="pg" data-p="services">
+  <div class="wrap">
+    <div class="shead rv"><div class="n">01 / Services</div><h2 class="display">Services</h2></div>
+    <div class="menu rv">
+      <div class="col"><h3>Cuts &amp; styling</h3>
+        <div class="r"><span>Women's cut</span><span>$55–75</span></div>
+        <div class="r"><span>Men's cut</span><span>$33–40</span></div>
+        <div class="r"><span>Children's cut</span><span>$20–25</span></div>
+        <div class="r"><span>Wash &amp; style</span><span>$40+</span></div>
+      </div>
+      <div class="col"><h3>Color</h3>
+        <div class="r"><span>New growth color</span><span>$120+</span></div>
+        <div class="r"><span>Balayage</span><span>$140+</span></div>
+        <div class="r"><span>Partial foil</span><span>$150+</span></div>
+        <div class="r"><span>Full foil</span><span>$180+</span></div>
+        <div class="r"><span>Vivids</span><span>$150+</span></div>
+        <div class="r"><span>Toner / gloss</span><span>$30–100</span></div>
+      </div>
+      <div class="col"><h3>Treatments</h3>
+        <div class="r"><span>Brazilian Blowout</span><span>$250+</span></div>
+        <div class="r"><span>Conditioning treatment</span><span>$25</span></div>
+      </div>
+    </div>
+    <p class="fine rv">Final prices are confirmed at your consultation. Not sure what to ask for? Call <a href="tel:+19072787895">(907) 278-7895</a> and the salon will help you choose. <em>Concept note: services and prices are taken from the salon's current public website.</em></p>
+  </div>
+</section>
+
+<section class="team pg" data-p="stylists">
+  <div class="wrap">
+    <div class="shead rv"><div class="n">02 / Stylists</div><h2 class="display">Stylists</h2></div>
+    <div class="ppl">
+      <div class="p rv"><div class="ph"><img src="brian.jpg" alt="Brian"></div><h3 class="display">Brian</h3><div class="mono role">Color · Corrective &amp; custom</div><p>Brian began doing hair in 2005 and opened the doors to Salon Ivy in 2007. Color, corrective and custom, is one of his many passions. While running the salon, he spent over 10 years teaching color, cutting and styling in Alaska and up and down the West Coast as a technical advisor for Schwarzkopf Professional.</p></div>
+      <div class="p rv"><div class="ph"><img src="kass.jpg" alt="Kassandra"></div><h3 class="display">Kassandra</h3><div class="mono role">Blonde · Multidimensional color</div><p>Kass has been a stylist for 10 years, developing her style from coast to coast. She specializes in blonde work, multidimensional color and custom color, as well as smoothing treatments like the Brazilian Blowout, which requires special certification. She brings a creative, professional approach to healthy, beautiful, natural-looking color.</p></div>
+      <div class="p rv"><div class="ph"><img src="barb.jpg" alt="Barb"></div><h3 class="display">Barb</h3><div class="mono role">Nationally certified colorist</div><p>Barb has been a stylist for over 25 years and is a nationally certified colorist. She specializes in many things across the board, and is now one of the few people in Anchorage still performing perms. She's known for helping clients figure out the style that suits them best, has styled in places across the United States, and is loved by all of her regulars.</p></div>
+      <div class="p rv"><div class="ph"><img src="angie.jpg" alt="Angie"></div><h3 class="display">Angie</h3><div class="mono role">Creative cuts · Vivid colors</div><p>Angie has been a stylist for several years, specializing in creative cuts and vivid colors. She has an amazing knack for bright alternative colors and the strategic parting that goes into them, and has performed incredible transformations with just a haircut. She is incredibly kind, funny and understanding, and it's a joy to be taken care of by her.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="work pg" data-p="work">
+  <div class="wrap">
+    <div class="shead rv"><div class="n">03 / Work</div><h2 class="display">Our work</h2></div>
+  </div>
+  <div class="strip" id="strip">
+    <figure><img src="g7.jpg" alt="Pink and purple vivids"></figure>
+    <figure><img src="g9.jpg" alt="Blonde waves"></figure>
+    <figure><img src="g1.jpg" alt="Before and after red color"></figure>
+    <figure><img src="g13.jpg" alt="Curly cut"></figure>
+    <figure><img src="g5.jpg" alt="Brunette balayage"></figure>
+    <figure><img src="g8.jpg" alt="Pink blonde color"></figure>
+    <figure><img src="g6.jpg" alt="Blonde transformation"></figure>
+    <figure><img src="g12.jpg" alt="Silver blonde"></figure>
+    <figure><img src="g4.jpg" alt="Blonde balayage"></figure>
+    <figure><img src="g14.jpg" alt="Curly blowout"></figure>
+    <figure><img src="g11.jpg" alt="Long blonde waves"></figure>
+    <figure><img src="g10.jpg" alt="Curls"></figure>
+  </div>
+  <div class="wrap stripnav"><a class="ghost" href="https://www.instagram.com/salon.ivy_ak/" target="_blank" rel="noopener">More on Instagram @salon.ivy_ak</a><div class="arrows"><button id="sl" aria-label="Scroll back">&larr;</button><button id="sr" aria-label="Scroll forward">&rarr;</button></div></div>
+</section>
+
+
+
+<section class="pg bookpg" data-p="book">
+  <div class="wrap">
+    <div class="shead rv"><div class="n">Book</div><h2 class="display">Book online</h2></div>
+    <div class="bk">
+      <ol class="steps" id="steps"><li class="on">New or returning</li><li>Service</li><li>Stylist</li><li>Day &amp; time</li><li>Your details</li></ol>
+      <div class="bkmain">
+        <div class="stp on" data-s="0">
+          <h3>Have you visited Salon Ivy before?</h3>
+          <div class="opts two2" id="cliopts">
+            <button data-v="New client"><span class="big">New client</span><small>This is my first visit</small></button>
+            <button data-v="Returning client"><span class="big">Returning client</span><small>I've been here before</small></button>
+          </div>
+        </div>
+        <div class="stp" data-s="1">
+          <h3>What are you coming in for?</h3>
+          <p class="hint">Choose as many as you like.</p>
+          <div class="opts" id="svcopts">
+            <button data-v="Women's cut">Women's cut<small>$55–75</small></button>
+            <button data-v="Men's cut">Men's cut<small>$33–40</small></button>
+            <button data-v="Children's cut">Children's cut<small>$20–25</small></button>
+            <button data-v="Wash &amp; style">Wash &amp; style<small>$40+</small></button>
+            <button data-v="New growth color">New growth color<small>$120+</small></button>
+            <button data-v="Balayage">Balayage<small>$140+</small></button>
+            <button data-v="Partial foil">Partial foil<small>$150+</small></button>
+            <button data-v="Full foil">Full foil<small>$180+</small></button>
+            <button data-v="Vivids">Vivids<small>$150+</small></button>
+            <button data-v="Toner / gloss">Toner / gloss<small>$30–100</small></button>
+            <button data-v="Brazilian Blowout">Brazilian Blowout<small>$250+</small></button>
+            <button data-v="Conditioning treatment">Conditioning treatment<small>$25</small></button>
+          </div>
+        </div>
+        <div class="stp" data-s="2">
+          <h3>Who would you like to see?</h3>
+          <div class="opts ppl2" id="styopts">
+            <button data-v="First available" class="any"><span class="av">&#10022;</span>First available<small>Soonest open time with any stylist</small></button>
+            <button data-v="Brian"><span class="av">B</span>Brian<small>Color · Corrective &amp; custom</small></button>
+            <button data-v="Kassandra"><span class="av">K</span>Kassandra<small>Blonde · Multidimensional color</small></button>
+            <button data-v="Barb"><span class="av">B</span>Barb<small>Nationally certified colorist</small></button>
+            <button data-v="Angie"><span class="av">A</span>Angie<small>Creative cuts · Vivid colors</small></button>
+          </div>
+        </div>
+        <div class="stp" data-s="3">
+          <h3>Pick a day and time</h3>
+          <div class="dt">
+            <div class="cal"><div class="calh"><button id="cprev" aria-label="Previous month">&larr;</button><b id="cmon"></b><button id="cnext" aria-label="Next month">&rarr;</button></div>
+              <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div><div class="days" id="days"></div>
+              <p class="calnote">Closed Sunday &amp; Monday</p></div>
+            <div class="times"><p id="tday">Choose a day to see open times.</p><div class="slots" id="slots"></div></div>
+          </div>
+        </div>
+        <div class="stp" data-s="4">
+          <h3>Your details</h3>
+          <form class="req" id="bkform">
+            <div class="two"><input placeholder="First name" required aria-label="First name"><input placeholder="Last name" required aria-label="Last name"></div>
+            <div class="two"><input type="email" placeholder="Email" required aria-label="Email"><input type="tel" placeholder="Phone" required aria-label="Phone"></div>
+            <textarea rows="3" placeholder="Anything your stylist should know? (optional)" aria-label="Notes"></textarea>
+            <button class="pill" type="submit">Confirm booking <i>&rarr;</i></button>
+          </form>
+        </div>
+        <div class="stp" data-s="5">
+          <div class="done"><div class="chk">&#10003;</div><h3>You're booked!</h3><p id="donetxt"></p><p class="demo">This is a demo booking page. No appointment was actually made.</p><a class="ghost" href="#home">Back to home</a></div>
+        </div>
+        <div class="bknav"><button class="ghost" id="bkback">&larr; Back</button><button class="pill" id="bknext">Continue <i>&rarr;</i></button></div>
+      </div>
+      <aside class="sum" id="sum"><div class="mono">Your appointment</div><dl><dt>Client</dt><dd id="s3">–</dd><dt>Service</dt><dd id="s0">–</dd><dt>Stylist</dt><dd id="s1">–</dd><dt>When</dt><dd id="s2">–</dd></dl></aside>
+    </div>
+  </div>
+</section>
+<section class="visit pg" data-p="visit">
+  <div class="wrap grid">
+    <div class="rv">
+      <div class="mono">04 / Visit us</div>
+      <div class="display big"><a href="tel:+19072787895">907.278.7895</a></div>
+      <dl>
+        <dt>Hours</dt><dd>Tuesday – Saturday, 10am – 6pm<br>Closed Sunday &amp; Monday</dd>
+        <dt>Address</dt><dd><a href="https://maps.google.com/?q=1108+E+Northern+Lights+Blvd+Anchorage+AK" target="_blank" rel="noopener">1108 E. Northern Lights Blvd<br>Anchorage, AK 99508</a></dd>
+        <dt>Email</dt><dd><a href="mailto:info.salonivy@gmail.com">info.salonivy@gmail.com</a></dd>
+      </dl>
+    </div>
+    <div class="vcta rv">
+      <h3>Book an appointment</h3>
+      <p>Choose your service, stylist, day and time.</p>
+      <a class="pill" href="#book">Book an appointment <i>&rarr;</i></a>
+      <p class="or">Or call <a href="tel:+19072787895">907.278.7895</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top"><div class="display word">Salon Ivy</div>
+      <div class="soc"><a href="https://www.instagram.com/salon.ivy_ak/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/SalonIvyAK/" target="_blank" rel="noopener">Facebook</a><a href="https://www.yelp.com/writeareview/biz/QwAk-FTSncZ4L01F0lXZBg" target="_blank" rel="noopener">Leave us a review</a></div></div>
+    <div class="bot"><span>1108 E. Northern Lights Blvd, Anchorage</span><span>Concept redesign by Small Batch Studio</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(el.closest('.row')?(Array.prototype.indexOf.call(el.parentNode.children,el)*.08):0)+'s';io.observe(el)});
+  var pages=['home','services','stylists','work','visit','book'];
+  function route(){var h=location.hash.slice(1);if(pages.indexOf(h)<0)h='home';
+    document.querySelectorAll('.pg').forEach(function(p){p.classList.toggle('on',p.dataset.p===h)});
+    document.querySelectorAll('nav [data-n]').forEach(function(a){a.classList.toggle('on',a.dataset.n===h)});
+    document.title=(h==='home'?'':h.charAt(0).toUpperCase()+h.slice(1)+' · ')+'Salon Ivy · Anchorage hair salon (concept)';
+    window.scrollTo(0,0);}
+  addEventListener('hashchange',function(){document.querySelector('nav').classList.remove('open');document.getElementById('mbtn').textContent='Menu';route()});route();
+  document.getElementById('mbtn').onclick=function(){var n=document.querySelector('nav');n.classList.toggle('open');this.textContent=n.classList.contains('open')?'Close':'Menu'};
+
+  // climbing ivy
+  (function(){
+    var NS='http://www.w3.org/2000/svg',stem=document.getElementById('vstem'),g=document.getElementById('vleaves');
+    var svg=document.getElementById('vine');var H=svg.parentNode.offsetHeight-parseFloat(getComputedStyle(svg).top)-4;svg.style.height=H+'px';var W=svg.getBoundingClientRect().width,mob=W<300;
+    var P=mob?[[W-20,-10],[W-60,60],[W-25,140]]:[[370,-10],[300,40],[250,95],[300,160],[230,225],[175,265],[215,330],[300,385],[345,440],[325,505],[365,560]];
+    var y=P[P.length-1][1],k=0;while(y<H-30){y+=mob?80:70;k++;P.push(mob?[W-(k%2?55:22),y]:[k%2?330:385,y]);}P.push([P[P.length-1][0]-10,H+5]);
+    function cr(pts){var d='M'+pts[0];for(var i=0;i<pts.length-1;i++){var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+','+(p1[1]+(p2[1]-p0[1])/6)+' '+(p2[0]-(p3[0]-p1[0])/6)+','+(p2[1]-(p3[1]-p1[1])/6)+' '+p2;}return d;}
+    stem.setAttribute('d',cr(P));
+    var L=stem.getTotalLength();stem.style.strokeDasharray=L;stem.style.strokeDashoffset=L;
+    var leaf='M0,0 C-4,-3 -13,-4 -17,-13 C-11,-13 -9,-17 -9,-24 C-4,-21 -1,-23 0,-31 C1,-23 4,-21 9,-24 C9,-17 11,-13 17,-13 C13,-4 4,-3 0,0Z';
+    var leaves=[],n=Math.round(L/(mob?60:34));
+    for(var i=1;i<=n;i++){var at=L*i/(n+1),pt=stem.getPointAtLength(at),pt2=stem.getPointAtLength(Math.min(L,at+2));
+      var ang=Math.atan2(pt2.y-pt.y,pt2.x-pt.x)*180/Math.PI,side=i%2?1:-1,sc=(mob?.55:.75)+((i*37)%10)/22;
+      var o=document.createElementNS(NS,'g');o.setAttribute('transform','translate('+pt.x+','+pt.y+') rotate('+(ang+90+side*75)+')');
+      var sw=document.createElementNS(NS,'g');sw.setAttribute('class','sw');sw.style.animationDelay=(-i*.7)+'s';
+      var lf=document.createElementNS(NS,'g');lf.setAttribute('class','lf');lf.style.transform='scale(0) rotate('+(side*-40)+'deg)';
+      lf.innerHTML='<line x1="0" y1="0" x2="0" y2="7" stroke="#2F6B4F" stroke-width="1.4"/><g transform="translate(0,-2) scale('+sc+')"><path d="'+leaf+'" fill="'+(i%3?'#4FD1A5':'#3BB58C')+'" stroke="#1E8E68" stroke-width=".9"/><path d="M0,-1 L0,-26 M0,-8 L-11,-14 M0,-8 L11,-14" stroke="#1E8E68" stroke-width=".7" fill="none"/></g>';
+      sw.appendChild(lf);o.appendChild(sw);g.appendChild(o);leaves.push({at:at,el:lf,on:false,sc:sc});
+      if(i%4===2){var t=document.createElementNS(NS,'path'),s2=-side;t.setAttribute('class','tendril lf');
+        t.setAttribute('d','M'+pt.x+','+pt.y+' q'+(s2*14)+',4 '+(s2*16)+',16 q1,8 -6,8 q-5,-1 -3,-6');t.style.transform='scale(0)';g.appendChild(t);leaves.push({at:at+6,el:t,on:false,t:1});}
+    }
+    var cur=0,target=0;
+    function want(){var max=Math.max(1,document.documentElement.scrollHeight-innerHeight);return Math.min(1,.22+.78*scrollY/max);}
+    function tick(){cur+= (target-cur)*.08;var len=L*cur;stem.style.strokeDashoffset=L-len;
+      leaves.forEach(function(l){var on=l.at<len;if(on!==l.on){l.on=on;l.el.classList.toggle('on',on);l.el.style.transform=on?'scale(1) rotate(0deg)':'scale(0) rotate(-40deg)';}});
+      if(Math.abs(target-cur)>.001)requestAnimationFrame(tick);}
+    function go(){target=want();requestAnimationFrame(tick);}
+    addEventListener('scroll',go,{passive:true});addEventListener('hashchange',function(){cur=0;setTimeout(go,50)});
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){cur=target=1;tick();}else setTimeout(go,350);
+  })();
+
+  // booking demo
+  (function(){
+    var st=0,sel={cli:null,svc:null,sty:null,day:null,time:null},steps=document.querySelectorAll('#steps li'),panes=document.querySelectorAll('.stp'),nx=document.getElementById('bknext'),bk=document.getElementById('bkback');
+    var mo=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    function pick(box,key,idx){document.querySelectorAll(box+' button').forEach(function(b){b.onclick=function(){document.querySelectorAll(box+' button').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sel[key]=b.dataset.v;document.getElementById('s'+idx).textContent=b.dataset.v;upd();setTimeout(adv,280);}})}
+    pick('#cliopts','cli',3);pick('#styopts','sty',1);
+    document.querySelectorAll('#svcopts button').forEach(function(b){b.onclick=function(){b.classList.toggle('sel');
+      var v=[].map.call(document.querySelectorAll('#svcopts .sel'),function(x){return x.dataset.v});sel.svc=v.length?v.join(' + '):null;
+      document.getElementById('s0').innerHTML=v.length?v.join('<br>'):'–';upd();}});
+    var today=new Date();today.setHours(0,0,0,0);var view=new Date(today.getFullYear(),today.getMonth(),1);
+    function cal(){document.getElementById('cmon').textContent=mo[view.getMonth()]+' '+view.getFullYear();var d=document.getElementById('days');d.innerHTML='';
+      var first=view.getDay(),n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate(),max=new Date(today);max.setDate(max.getDate()+60);
+      for(var i=0;i<first;i++)d.appendChild(document.createElement('span'));
+      for(var k=1;k<=n;k++){(function(k){var dt=new Date(view.getFullYear(),view.getMonth(),k),b=document.createElement('button');b.textContent=k;b.type='button';
+        if(dt<=today||dt>max||dt.getDay()===0||dt.getDay()===1)b.disabled=true;
+        if(sel.day&&+sel.day===+dt)b.classList.add('sel');
+        b.onclick=function(){sel.day=dt;sel.time=null;cal();slots();upd();};d.appendChild(b);})(k);}
+      document.getElementById('cprev').disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);}
+    document.getElementById('cprev').onclick=function(){view.setMonth(view.getMonth()-1);cal()};
+    document.getElementById('cnext').onclick=function(){view.setMonth(view.getMonth()+1);cal()};
+    function fmt(d){return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}
+    function slots(){var s=document.getElementById('slots');s.innerHTML='';if(!sel.day)return;document.getElementById('tday').textContent=fmt(sel.day);
+      ['10:00 am','10:30 am','11:00 am','11:30 am','12:00 pm','12:30 pm','1:00 pm','1:30 pm','2:00 pm','2:30 pm','3:00 pm','3:30 pm','4:00 pm','4:30 pm','5:00 pm'].forEach(function(t,i){
+        var b=document.createElement('button');b.type='button';b.textContent=t;if(((sel.day.getDate()*7+i*3+(sel.sty||'').length)%5)===0)b.disabled=true;
+        if(sel.time===t)b.classList.add('sel');b.onclick=function(){sel.time=t;slots();upd();setTimeout(adv,350);};s.appendChild(b);});}
+    function upd(){document.getElementById('s2').textContent=sel.day?(fmt(sel.day)+(sel.time?' at '+sel.time:'')):'–';
+      var ok=[sel.cli,sel.svc,sel.sty,sel.day&&sel.time,true][st];nx.disabled=!ok;nx.firstChild.nodeValue=(st===1&&sel.svc?'Continue with '+sel.svc.split(' + ').length+(sel.svc.split(' + ').length>1?' services ':' service '):'Continue ');nx.style.display=st===1?'':'none';bk.style.visibility=(st===0||st===5)?'hidden':'visible';
+      steps.forEach(function(l,i){l.classList.toggle('on',i===st);l.classList.toggle('done',i<st)});panes.forEach(function(p){p.classList.toggle('on',+p.dataset.s===st)});
+      document.getElementById('sum').style.display=st===5?'none':'';}
+    var busy=false;function go(n,cb){if(busy)return;busy=true;var cur=document.querySelector('.stp.on');cur.classList.add('out');setTimeout(function(){cur.classList.remove('out');st=n;if(st===3)cal();upd();busy=false;if(cb)cb();},280);}
+    function adv(){if(st<4&&!nx.disabled){go(st+1);var t=document.querySelector('.bk').getBoundingClientRect().top+scrollY-90;if(scrollY>t)scrollTo(0,t);}}
+    nx.onclick=adv;bk.onclick=function(){if(st>0)go(st-1)};
+    document.getElementById('bkform').onsubmit=function(e){e.preventDefault();var f=this.querySelectorAll('input');
+      document.getElementById('donetxt').innerHTML='See you '+fmt(sel.day)+' at '+sel.time+'<br>'+sel.svc+' with '+(sel.sty==='First available'?'the first available stylist':sel.sty)+'.<br>A confirmation would be sent to '+f[2].value+'.';go(5,function(){scrollTo(0,0)});};
+    addEventListener('hashchange',function(){if(location.hash==='#book'&&st===5){st=0;sel={cli:null,svc:null,sty:null,day:null,time:null};document.querySelectorAll('.opts .sel').forEach(function(b){b.classList.remove('sel')});['s0','s1','s2','s3'].forEach(function(i){document.getElementById(i).textContent='–'});document.getElementById('bkform').reset();}upd();});
+    upd();
+  })();
+  var s=document.getElementById('strip');
+  document.getElementById('sr').onclick=function(){s.scrollBy({left:s.clientWidth*.7,behavior:'smooth'})};
+  document.getElementById('sl').onclick=function(){s.scrollBy({left:-s.clientWidth*.7,behavior:'smooth'})};
+})();
+</script>
+</body>
+</html>

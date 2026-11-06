@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ray's Place · Vietnamese cuisine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--jade:#0F3A32;--jade2:#16483E;--rice:#F5EEE1;--rice2:#EBE1CF;--red:#C2361F;--red-d:#982813;--gold:#D8A443;--ink:#1D1A16;--mut:#6B6257}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--rice);color:var(--ink);font-size:16.5px;line-height:1.6}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.concept{background:var(--ink);color:#E9DFCF;font-size:12.5px;text-align:center;padding:7px 14px}
+.concept a{color:var(--gold)}
+/* header */
+header.top{background:var(--rice);border-bottom:1px solid var(--rice2);position:sticky;top:0;z-index:10}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.seal{width:46px;height:46px;background:var(--red);color:var(--rice);border-radius:6px;display:grid;place-items:center;font-family:Fraunces,serif;font-size:15px;line-height:1;text-align:center;transform:rotate(-3deg);box-shadow:inset 0 0 0 2px var(--red),inset 0 0 0 3.5px rgba(245,238,225,.75)}
+.brand b{font-family:Fraunces,serif;font-weight:600;font-size:23px;display:block;line-height:1}
+.brand small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+nav.main{display:flex;gap:4px}
+nav.main a{text-decoration:none;font-size:15px;font-weight:500;padding:8px 14px;border-radius:99px;color:var(--mut)}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{background:var(--jade);color:var(--rice)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:99px;border:0;white-space:nowrap}
+.btn:hover{background:var(--red-d)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+#mbtn{display:none;background:none;border:1.5px solid var(--ink);border-radius:99px;padding:8px 14px;font:inherit;font-weight:600;font-size:14px}
+.pg{display:none}.pg.on{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+/* home hero */
+.hero{background:var(--jade);color:var(--rice);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:84px}
+.since{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.since:before{content:"";width:28px;height:1.5px;background:var(--gold)}
+.hero h1{font-size:clamp(44px,6.2vw,80px);margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lead{font-size:18px;color:#D6DDD3;max-width:30em}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.bowl{position:relative;justify-self:center;width:min(440px,100%);aspect-ratio:1}
+.bowl img{width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 0 0 10px var(--jade2),0 0 0 11.5px rgba(216,164,67,.55),0 30px 60px rgba(0,0,0,.35)}
+.bowl .stamp{position:absolute;right:-6px;bottom:22px;background:var(--red);color:var(--rice);font-family:Fraunces,serif;font-size:15px;line-height:1.15;text-align:center;padding:14px 16px;border-radius:8px;transform:rotate(6deg);box-shadow:inset 0 0 0 4px var(--red),inset 0 0 0 5.5px rgba(245,238,225,.7)}
+.bowl .stamp b{display:block;font-size:30px;font-weight:600}
+/* today ticket */
+.ticket{position:relative;z-index:2;margin-top:-38px}
+.ticket .card{background:#fff;border-radius:16px;box-shadow:0 14px 40px rgba(15,58,50,.13);display:grid;grid-template-columns:1.2fr 1fr 1fr;overflow:hidden}
+.ticket .c{padding:22px 26px;border-left:1.5px dashed var(--rice2)}
+.ticket .c:first-child{border-left:0}
+.lbl{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:6px;display:flex;gap:10px;align-items:center}
+.val{font-weight:500;font-size:16.5px;line-height:1.45}
+#today span{display:block;white-space:nowrap}
+.pill{font-size:11px;letter-spacing:.06em;text-transform:none;font-weight:600;background:#DDEFE6;color:var(--jade);padding:3px 9px;border-radius:99px}
+.pill.closed{background:#F6E1DA;color:var(--red-d)}
+/* sections */
+section{padding:88px 0}
+.eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:12px}
+h2{font-size:clamp(34px,4.2vw,50px)}
+.board{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.board p.sub{color:var(--mut);margin-top:16px;max-width:24em}
+.dl{list-style:none;border-top:1.5px solid var(--ink)}
+.dl li{display:flex;align-items:baseline;gap:12px;padding:18px 0;border-bottom:1px solid var(--rice2)}
+.dl .vn{font-family:Fraunces,serif;font-style:italic;font-size:15px;color:var(--red);display:block;line-height:1.2}
+.dl .nm{font-family:Fraunces,serif;font-size:24px;line-height:1.2}
+.dl .dots{flex:1;border-bottom:2px dotted #C9BCA6;transform:translateY(-6px)}
+.dl .pr{font-weight:600;white-space:nowrap}
+.press{background:var(--rice2)}
+.press .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.press a.g{text-decoration:none}
+.press figure{padding:6px 0 6px 26px;border-left:3px solid var(--red)}
+.press blockquote{font-family:Fraunces,serif;font-size:clamp(24px,2.6vw,32px);line-height:1.2}
+.press figcaption{margin-top:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mut)}
+.stars{color:var(--gold);letter-spacing:2px}.stars i{color:#CDBFA8;font-style:normal}
+.teaser{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.teaser .yr{font-family:Fraunces,serif;font-size:clamp(90px,13vw,170px);line-height:.85;color:var(--jade);letter-spacing:-.04em}
+.teaser .yr small{display:block;font-family:"Be Vietnam Pro";font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-top:16px}
+.teaser p{color:#3E3830;font-size:17.5px;margin:16px 0 24px}
+.tlink{font-weight:600;color:var(--red);text-decoration:none;border-bottom:1.5px solid}
+/* page header */
+.ph{background:var(--jade);color:var(--rice);padding:64px 0 56px}
+.ph h1{font-size:clamp(42px,5.6vw,68px)}
+.ph p{color:#D6DDD3;margin-top:14px;max-width:36em}
+.ph a{color:var(--gold)}
+/* menu page */
+.chipbar{position:sticky;top:74px;z-index:5;background:var(--rice);border-bottom:1px solid var(--rice2)}
+.chipbar .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+.chipbar a{flex:none;text-decoration:none;font-size:14px;font-weight:500;padding:7px 14px;border-radius:99px;box-shadow:inset 0 0 0 1px #D5C8B2;color:var(--mut)}
+.chipbar a:hover{background:var(--jade);color:var(--rice);box-shadow:none}
+.msec{padding:52px 0 8px;scroll-margin-top:140px}
+.msec h3{font-size:32px;display:flex;align-items:baseline;gap:14px}
+.msec h3:after{content:"";flex:1;height:1.5px;background:var(--ink)}
+.mnote{color:var(--mut);font-size:15px;margin-top:10px;max-width:52em}
+.menu{display:grid;grid-template-columns:1fr 1fr;column-gap:52px;margin-top:14px}
+.item{display:flex;gap:10px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rice2)}
+.item>div{flex:1;min-width:0}
+.item h4{font-weight:600;font-size:16px;display:flex;gap:10px;align-items:baseline}
+.item h4 .dt{flex:1;border-bottom:2px dotted #CDBFA8;transform:translateY(-4px);min-width:16px}
+.item p{font-size:14px;color:var(--mut);margin-top:2px}
+.item>.pr{flex:none;font-weight:600;white-space:nowrap}
+.tag{font-size:11px;font-weight:600;background:var(--red);color:#fff;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.note{font-size:14px;color:var(--mut);margin-top:22px;max-width:60em}
+.allergy{background:#fff;border-radius:12px;padding:18px 20px;margin-top:48px;color:#4A443C}
+/* story */
+.story{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:start}
+.story .prose p{font-size:18px;color:#36312A;margin-bottom:20px}
+.story .prose p:first-child:first-letter{font-family:Fraunces,serif;float:left;font-size:76px;line-height:.8;padding:8px 10px 0 0;color:var(--red)}
+.facts{list-style:none;background:#fff;border-radius:16px;padding:8px 24px}
+.facts li{padding:18px 0;border-bottom:1px dashed var(--rice2)}
+.facts li:last-child{border:0}
+.facts b{font-family:Fraunces,serif;font-weight:400;font-size:34px;color:var(--jade);display:block;line-height:1}
+.facts span{font-size:14.5px;color:var(--mut)}
+.video{display:flex;gap:20px;align-items:center;margin-top:36px;text-decoration:none;background:var(--jade);color:var(--rice);border-radius:16px;padding:18px}
+.video .play{flex:none;width:58px;height:58px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:20px}
+.video b{font-family:Fraunces,serif;font-weight:400;font-size:22px;display:block}
+.video span{font-size:14px;color:#C8D2C9}
+.wall{padding:0 0 88px}
+.wall .frames{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:22px}
+.wall .fr{aspect-ratio:4/5;background:#fff;padding:12px 12px 40px;box-shadow:0 8px 24px rgba(15,58,50,.12);position:relative}
+.wall .fr:nth-child(odd){transform:rotate(-1.6deg)}.wall .fr:nth-child(even){transform:rotate(1.4deg) translateY(10px)}
+.wall .fr div{height:100%;background:repeating-linear-gradient(135deg,#EFE7D8 0 10px,#E8DECB 10px 20px);display:grid;place-items:center;color:#9A8E7C;font-size:13px;text-align:center;padding:10px}
+.wall .cap{color:var(--mut);font-size:14px;margin-top:34px}
+@media(max-width:860px){.wall .frames{grid-template-columns:1fr 1fr}}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.vcard{background:#fff;border-radius:18px;padding:34px}
+.vcard h3{font-size:30px;margin-bottom:6px}
+.vcard table{width:100%;border-collapse:collapse;margin-top:16px}
+.vcard td{padding:14px 0;border-bottom:1px solid var(--rice2);vertical-align:top}
+.vcard td:last-child{text-align:right;font-weight:500}
+.vcard .ctas{margin-top:26px}
+.vcard .btn.ghost{color:var(--ink)}
+.map{background:var(--jade);color:var(--rice)}
+.map p{color:#D6DDD3}
+.map .btn.ghost{color:var(--rice)}
+.big{font-family:Fraunces,serif;font-size:30px;line-height:1.2;margin:10px 0 4px}
+.dine{display:inline-block;margin-top:22px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+footer{background:var(--ink);color:#BDB3A4;font-size:14px;padding:34px 0;margin-top:0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{font-family:Fraunces,serif;font-weight:400;color:var(--rice);font-size:18px}
+.mobilebar{display:none}
+@media(max-width:860px){
+ nav.main{display:none;position:absolute;top:74px;left:0;right:0;background:var(--rice);flex-direction:column;padding:10px 16px 18px;border-bottom:1px solid var(--rice2)}
+ nav.main.open{display:flex}
+ nav.main a{font-size:18px;padding:12px 16px}
+ #mbtn{display:block}
+ header.top .btn{display:none}
+ .hero .wrap,.board,.teaser,.story,.visit,.press .wrap{grid-template-columns:1fr}
+ .hero .wrap{padding-top:44px;padding-bottom:70px;gap:34px}
+ .bowl{width:78%}
+ .ticket .card{grid-template-columns:1fr}
+ .ticket .c{border-left:0;border-top:1.5px dashed var(--rice2)}
+ .ticket .c:first-child{border-top:0}
+ .menu{grid-template-columns:1fr}
+ section{padding:64px 0}
+ .board,.teaser,.story{gap:30px}
+ .mobilebar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;padding:10px 14px;background:var(--rice);border-top:1px solid var(--rice2);z-index:20}
+ .mobilebar .btn{flex:1;justify-content:center}
+ .mobilebar .btn.ghost{color:var(--ink)}
+ body{padding-bottom:70px}
+ .chipbar{top:74px}
+}
+</style>
+</head>
+<body>
+<div class="concept">Concept redesign by <a href="https://smallbatch.studio">Small Batch Studio</a>. Not the official Ray's Place website.</div>
+
+<header class="top">
+ <div class="wrap">
+  <a class="brand" href="#home" data-n="home"><span class="seal">Ray's</span><span><b>Ray's Place</b><small>Vietnamese cuisine</small></span></a>
+  <nav class="main" id="nav">
+   <a href="#home" data-n="home">Home</a>
+   <a href="#menu" data-n="menu">Menu</a>
+   <a href="#story" data-n="story">Our story</a>
+   <a href="#visit" data-n="visit">Hours &amp; map</a>
+  </nav>
+  <a class="btn" href="https://order.online/store/-454841/">Order online</a>
+  <button id="mbtn" aria-expanded="false" aria-controls="nav">Menu</button>
+ </div>
+</header>
+
+<!-- HOME -->
+<div class="pg" data-p="home" data-t="Ray's Place · Vietnamese cuisine">
+ <div class="hero">
+  <div class="wrap">
+   <div>
+    <span class="since">Proudly serving Alaskans since 1993</span>
+    <h1>The best Vietnamese food in Alaska.</h1>
+    <p class="lead">Dine in or carry out.</p>
+    <div class="ctas">
+     <a class="btn" href="https://order.online/store/-454841/">Order online</a>
+     <a class="btn ghost" href="#menu">See the menu</a>
+    </div>
+   </div>
+   <div class="bowl"><img src="pho-round.jpg" alt="A bowl of seafood pho with fresh herbs, jalapeños and lime"><div class="stamp">since<b>1993</b></div></div>
+  </div>
+ </div>
+ <div class="ticket">
+  <div class="wrap"><div class="card">
+   <div class="c"><div class="lbl">Today <span class="pill" id="openpill">Open Mon–Fri</span></div><div class="val" id="today"><span>Lunch 10am–3pm</span><span>Dinner 5–8:30pm</span></div></div>
+   <div class="c"><div class="lbl">Find us</div><div class="val">2412 Spenard Road<br>Anchorage, AK 99503</div></div>
+   <div class="c"><div class="lbl">Call</div><div class="val"><a href="tel:+19072792932">907-279-2932</a></div></div>
+  </div></div>
+ </div>
+
+ <section>
+  <div class="wrap board">
+   <div>
+    <div class="eyebrow">From the menu</div>
+    <h2>A few to start with</h2>
+    <p class="sub">Pho, banh mi, crepes, curries, noodles and more.</p>
+    <div class="ctas"><a class="btn" href="#menu">Full menu</a></div>
+   </div>
+   <ul class="dl">
+    <li><div><span class="vn">Phở hải sản</span><span class="nm">Seafood pho</span></div><span class="dots"></span><span class="pr">$19 / $21</span></li>
+    <li><div><span class="vn">Gỏi cuốn</span><span class="nm">Fresh spring rolls</span></div><span class="dots"></span><span class="pr">3 for $13</span></li>
+    <li><div><span class="vn">Bánh mì</span><span class="nm">Joanne's deluxe banh mi</span></div><span class="dots"></span><span class="pr">$15</span></li>
+    <li><div><span class="vn">Bánh xèo</span><span class="nm">Vietnamese crepe</span></div><span class="dots"></span><span class="pr">$20</span></li>
+    <li><div><span class="vn">Bún bò Huế</span><span class="nm">Spicy beef noodle soup</span></div><span class="dots"></span><span class="pr">$22</span></li>
+   </ul>
+  </div>
+ </section>
+
+ <div class="press">
+  <section style="padding:64px 0"><div class="wrap">
+   <figure><blockquote><span class="stars" aria-label="4 out of 5 stars">★★★★<i>★</i></span><br>Four out of five</blockquote><figcaption>Anchorage Daily News</figcaption></figure>
+   <figure><blockquote>“Great food, service and style”</blockquote><figcaption>Anchorage Press</figcaption></figure>
+   <a class="g" href="https://maps.app.goo.gl/qHJnWQdir2hH17cs8"><figure><blockquote>4.7 <span class="stars">★</span><br>From 600+ reviews</blockquote><figcaption>Google reviews</figcaption></figure></a>
+  </div></section>
+ </div>
+
+ <section>
+  <div class="wrap teaser">
+   <div class="yr">1975<small>Saigon to Anchorage</small></div>
+   <div>
+    <div class="eyebrow">Our story</div>
+    <h2>Named for the man who brought the family here</h2>
+    <p>Ray Seetomona, a military man from Shishmaref, met Linda in Vietnam. In 1975 the family flew out of Saigon and landed in Anchorage.</p>
+    <a class="tlink" href="#story">Read our story</a>
+   </div>
+  </div>
+ </section>
+</div>
+
+<!-- MENU -->
+<div class="pg" data-p="menu" data-t="Menu · Ray's Place">
+ <div class="ph"><div class="wrap">
+  <div class="eyebrow" style="color:var(--gold)">Menu</div>
+  <h1>Our menu</h1>
+  <p>Dine in, carry out, or <a href="https://order.online/store/-454841/">order online</a>.</p>
+ </div></div>
+ <div class="chipbar"><div class="wrap" id="chips"></div></div>
+ <div class="wrap" id="fullmenu"></div>
+ <div class="wrap" style="padding-bottom:80px">
+  <p class="note allergy"><strong>Allergy awareness:</strong> onion, garlic, wheat, peanuts, MSG, carrots, pineapple, oyster sauce and fish sauce are used in some dishes. Please ask the manager if you have concerns. *Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness.</p>
+ </div>
+</div>
+
+<!-- STORY -->
+<div class="pg" data-p="story" data-t="Our story · Ray's Place">
+ <div class="ph"><div class="wrap">
+  <div class="eyebrow" style="color:var(--gold)">Our story</div>
+  <h1>Why it's called Ray's Place</h1>
+ </div></div>
+ <section><div class="wrap story">
+  <div class="prose">
+   <p>It started when Ray Seetomona, a military man from Shishmaref, fell in love with Linda in Vietnam. Linda agreed to follow him to Alaska if he brought her children too, so he did. The family flew out of Saigon on one of the last commercial flights and landed in Anchorage in 1975. Joanne was 13.</p>
+   <p>Years later, Joanne's mom told her, “Why don't you open a Vietnamese restaurant? You like to cook.” Joanne and her husband Curtis started out as Saigon Restaurant on Tudor Road, with their baby asleep in a stroller in the kitchen.</p>
+   <p>When they moved to Spenard Road, they renamed it Ray's Place, in honor of the man who brought the family here.</p>
+   <a class="video" href="https://www.youtube.com/watch?v=Rr0Iv-LTKp0"><span class="play">▶</span><span><b>Diners, Drive-Ins and Dives</b><span>Watch Guy Fieri's visit to Ray's Place</span></span></a>
+  </div>
+  <ul class="facts">
+   <li><b>1975</b><span>The family leaves Saigon for Anchorage</span></li>
+   <li><b>Tudor Road</b><span>Where it began, as Saigon Restaurant</span></li>
+   <li><b>1993</b><span>Serving Alaskans ever since</span></li>
+   <li><b>Spenard Road</b><span>Home of Ray's Place today</span></li>
+  </ul>
+ </div></section>
+ <div class="wall"><div class="wrap">
+  <div class="eyebrow">From our walls</div>
+  <div class="frames"><div class="fr"><div>Family photo</div></div><div class="fr"><div>Family photo</div></div><div class="fr"><div>Family photo</div></div><div class="fr"><div>Family photo</div></div></div>
+  <p class="cap">Concept note: the family photos hanging in the restaurant would be scanned and shown here.</p>
+ </div></div>
+</div>
+
+<!-- VISIT -->
+<div class="pg" data-p="visit" data-t="Hours & map · Ray's Place">
+ <div class="ph"><div class="wrap">
+  <div class="eyebrow" style="color:var(--gold)">Hours &amp; map</div>
+  <h1>Come see us</h1>
+ </div></div>
+ <section><div class="wrap visit">
+  <div class="vcard">
+   <h3>Hours</h3>
+   <table>
+    <tr><td>Monday – Friday</td><td>Lunch 10am–3pm<br>Dinner 5–8:30pm</td></tr>
+    <tr><td>Saturday &amp; Sunday</td><td>Closed</td></tr>
+   </table>
+   <div class="ctas"><a class="btn" href="https://order.online/store/-454841/">Order online</a><a class="btn ghost" href="tel:+19072792932">Call 907-279-2932</a></div>
+  </div>
+  <div class="vcard map">
+   <div class="eyebrow" style="color:var(--gold)">Find us</div>
+   <div class="big">2412 Spenard Road<br>Anchorage, Alaska 99503</div>
+   <p style="font-size:14px;margin-top:8px">(On the live site, an interactive Google Map goes here.)</p>
+   <div class="ctas"><a class="btn ghost" href="https://maps.app.goo.gl/qHJnWQdir2hH17cs8">Open in Google Maps</a></div>
+   <span class="dine">Dine in or carry out</span>
+  </div>
+ </div></section>
+</div>
+
+<footer><div class="wrap">
+ <div><b>Ray's Place</b><br>Proudly serving Alaskans since 1993</div>
+ <div>2412 Spenard Road, Anchorage · 907-279-2932<br>Concept redesign by Small Batch Studio</div>
+</div></footer>
+
+<div class="mobilebar"><a class="btn ghost" href="tel:+19072792932">Call</a><a class="btn" href="https://order.online/store/-454841/">Order online</a></div>
+
+<script>
+const MENU=[
+{id:"appetizers",t:"Appetizers",items:[
+["Fried egg rolls","Bean thread, ground pork, green cabbage and assorted vegetables","3 for $13"],
+["Fresh spring rolls","Shrimp, chicken, thin rice noodles, bean sprouts, herbs and vegetables","3 for $13"],
+["Fresh pork spring rolls","Baked pork meat loaf, thin rice noodles, crispy roll, rice paper and vegetables, with peanut sauce","3 for $16"],
+["Shrimp rolls","Fried shrimp rolled in egg roll wrapper","$13"],
+["Vung's wrap","Fried egg roll with whole shrimp, rice noodle, lettuce and herbs","$17"],
+["Seared Saigon tuna*","Tuna steak, raw in center","$16"]]},
+{id:"sandwiches",t:"Sandwiches & salads",items:[
+["Joanne's deluxe banh mi","French bread, Vietnamese pork roll, ham, BBQ pork, head cheese, jalapeño, pâté, cilantro, mayo, pickled vegetables","$15"],
+["Grilled chicken sandwich","French bread, grilled chicken breast, mayo, jalapeño, cilantro, pickled vegetables","$17"],
+["Tofu sandwich","French bread, fried tofu, pickled vegetables, jalapeño, cilantro","$15"],
+["Vietnamese chicken salad","Green cabbage, shredded chicken, carrots, onion, parsley, Vietnamese dressing","$15"],
+["Chinese chicken salad","Green cabbage, shredded chicken, mandarin orange, sliced almonds, ramen noodles, ginger dressing on the side","$15"],
+["Grilled chicken salad","Grilled chicken breast on green salad, carrots, Vietnamese dressing","$20"],
+["Vietnamese shrimp salad","Sautéed shrimp and onions in vinaigrette on green salad, carrots","$20"],
+["Vietnamese tuna salad*","Seared tuna and onions in vinaigrette on green salad, carrots. Tuna is raw in center","$21"],
+["Vietnamese beef salad","Sautéed beef and onions in vinaigrette on green salad, carrots","$20"],
+["Vietnamese duck salad","Boneless duck and onions in vinaigrette on green salad, carrots","$23"],
+["Brown or steamed rice","Per serving","$3"]]},
+{id:"cold-noodles",t:"Cold noodle salads",note:"Lettuce, thin rice noodles, bean sprouts, carrots, cucumbers and cilantro with your choice of meat. Vietnamese gourmet sauce on the side. Second price is prepared with curry sauce. Add an extra egg roll to any for $4.50.",items:[
+["Pork","","$19 / $20"],["Egg roll","","$19 / $20"],["Beef","","$19 / $20"],["Chicken","","$19 / $20"],["Tofu","","$19 / $20"],
+["Shrimp","","$21 / $22"],["Imitation crab","","$21 / $22"],["Squid","","$21 / $22"],["Seafood","","$22 / $23"],["Duck","","$23 / $24"]]},
+{id:"crepes",t:"Crepes (bánh xèo)",items:[
+["Vietnamese crepe","Rice starch, turmeric, chicken, shrimp, onion, bean sprouts, coconut milk","$20","Seen on Diners, Drive-Ins and Dives"],
+["Vegetable crepe","","$20"],["Extra plate of lettuce","","$3"]]},
+{id:"pho",t:"Pho (Vietnamese soups)",note:"Beef and chicken broth, Vietnamese seasoning and flat rice noodles with your choice of meat. Served with bean sprouts, lime, jalapeño, basil and cilantro. Prices are regular / jumbo.",items:[
+["Beef","","$17 / $19"],["Chicken","","$17 / $19"],["Vegetable","","$17 / $19"],["Meatball","","$17 / $19"],["Beef and meatball","","$18 / $20"],
+["Seafood","Shrimp, squid, imitation crab","$19 / $21"],["Bún bò Huế","Pig feet, tendon and chả","$22"],["Duck soup with egg noodle","","$23"],
+["Bowl of broth","Small / regular / jumbo","$5 / $6 / $7.50"],["Extra noodles on the side","","$4"],["Extra plate of sprouts, peppers, lime and basil","","$3"]]},
+{id:"fried-rice",t:"Fried rice",note:"Steamed rice, fried egg and assorted vegetables with your choice of meat. Second price is prepared with curry sauce.",items:[
+["Combination","Shrimp, chicken and pork","$21 / $22"],["Shrimp","","$21 / $22"],["Chicken","","$20 / $21"],["Pork","Ham, BBQ pork, Vietnamese pork sausage","$20 / $21"],
+["Beef","","$20 / $21"],["Tofu","","$20 / $21"],["Vegetable","","$20 / $21"],["Crab","Imitation crab","$21 / $22"],["Squid","","$21 / $22"],
+["Seafood","Shrimp, squid, imitation crab","$22 / $23"],["Duck","","$23 / $24"],["Lamb","","$22 / $23"]]},
+{id:"saute-noodles",t:"Sauté noodles",note:"Egg noodles and assorted vegetables with your choice of meat. Second price is prepared with curry sauce. Any Pad Thai request is $3 extra.",items:[
+["Chicken","","$20 / $21"],["Beef","","$20 / $21"],["Pork","","$20 / $21"],["Tofu","","$20 / $21"],["Vegetable","","$20 / $21"],
+["Shrimp","","$21 / $22"],["Crab","Imitation crab","$21 / $22"],["Squid","","$21 / $22"],["Seafood","Shrimp, squid, imitation crab","$22 / $23"],
+["Lamb","","$22 / $23"],["Duck","","$23 / $24"],["Siri's sauté noodles","Chicken thigh and egg noodles in a light sauce, no vegetables","$18 / $19"]]},
+{id:"beef",t:"Beef entrées",note:"Served with steamed rice. Brown rice is $2 extra.",items:[
+["Lemongrass steak","Well-done steak, lemongrass, seasoning, sautéed vegetables","$25"],
+["Teriyaki steak","Well-done steak, teriyaki sauce, sautéed vegetables","$25"],
+["Steak USA","Well-done steak, salt and pepper, sautéed vegetables","$25"],
+["Beef broccoli","Sautéed beef, broccoli and vegetables","$20"],["Beef vegetables","","$20"],
+["Spicy beef","Sautéed beef, lemongrass, spices, assorted vegetables","$20"],
+["Beef curry","Beef, mixed vegetables, curry, coconut milk, jalapeño, basil","$21"],
+["Ginger beef","Beef, mixed vegetables, fresh ginger, teriyaki sauce","$21"],
+["Tamarind beef","Sautéed beef and vegetables in a hot and sour sauce","$20"],
+["Tomato beef","Beef, vegetables, tomato sauce","$21"],["Garlic beef","Beef, vegetables, garlic sauce","$20"]]},
+{id:"pork",t:"Pork entrées",items:[
+["Vietnamese pork chops","Boneless pork chop, lemongrass, spices, sautéed vegetables","$20"],
+["BBQ ribs","Twice-cooked ribs, lemongrass, spices, sautéed vegetables","$20"],
+["Pork vegetables","","$20"],["Tamarind pork","Sautéed pork and vegetables in a hot and sour sauce","$20"],
+["Sweet and sour spare ribs","Short ribs and vegetables in sweet and sour sauce","$20"],["Garlic pork","","$20"]]},
+{id:"lamb",t:"Lamb entrées",items:[
+["Lamb curry with vegetables","Sautéed lamb, mixed vegetables, basil, jalapeño, curry, coconut milk","$23"],
+["Spicy lamb","Sautéed lamb, lemongrass spices, sautéed vegetables","$22"],
+["Garlic lamb","Lamb and vegetables in garlic sauce","$20"],
+["Mung's secret lamb chops","Made with something special, with sautéed vegetables","$27"]]},
+{id:"chicken",t:"Chicken entrées",note:"Brown rice is $2 extra.",items:[
+["Chicken pineapple with cashews","Chicken, pineapple, cashews, assorted vegetables","$21"],
+["Vietnamese BBQ chicken","Chicken thigh, BBQ sauce, sautéed vegetables","$20"],
+["Chicken broccoli","Chicken, broccoli and vegetables","$20"],
+["Five star chicken","Chicken thigh, five-spice, sautéed vegetables","$20"],
+["Chicken vegetables","","$20"],["Chicken vegetables with curry","","$21"],
+["Spicy chicken","Chicken thigh, lemongrass, spices, sautéed vegetables","$20"],["Spicy chicken with cashews","","$21"],
+["Breaded garlic chicken breast","Chicken breast, panko, sautéed vegetables","$21"],
+["Lemon chicken breast","Chicken breast, lemon juice, cooking wine, sautéed vegetables","$21"],
+["Teriyaki chicken breast","Chicken breast, teriyaki sauce, sautéed vegetables","$21"],
+["Sweet and sour chicken","Chicken, vegetables, sweet and sour sauce","$20"],
+["Ginger chicken","Chicken, spicy ginger, vegetables","$20"],
+["Tomato chicken","Chicken and vegetables in sweet and sour tomato sauce","$21"],
+["Chicken curry","Stewed chicken thigh, potatoes, carrots, onions, curry, coconut milk","$18"],
+["Simon's chicken","Chicken thigh in light teriyaki sauce, no vegetables","$18"]]},
+{id:"duck",t:"Duck entrées",note:"Marinated duck, roasted, deboned and prepared with mixed vegetables. Served with steamed rice.",items:[
+["Beer duck","With beer and Vietnamese seasoning","$23"],["Spicy duck","With lemongrass and Vietnamese seasoning","$23"],
+["Sweet and sour duck","","$23"],["Ginger duck","With fresh ginger","$23"],["Duck curry","","$24"],["Tamarind duck","","$23"],["Tomato duck","","$23"]]},
+{id:"seafood",t:"Seafood entrées",note:"Served with steamed rice. Brown rice is $2 extra.",items:[
+["Sweet and sour shrimp or squid","Mixed vegetables in sweet and sour sauce","$22"],
+["Sweet and sour seafood","Shrimp, scallops, imitation crab, vegetables","$23"],
+["Shrimp vegetables","","$21"],["Shrimp and squid mixed vegetables","","$22"],
+["Garlic shrimp or squid","Mixed vegetables in garlic sauce","$21"],["Ginger shrimp or squid","Mixed vegetables, fresh ginger","$21"],
+["Spicy shrimp or squid","Mixed vegetables, lemongrass, fish sauce","$21"],["Tamarind shrimp or squid","Mixed vegetables in tamarind sauce","$21"],
+["Shrimp curry","Mixed vegetables, curry, coconut milk, jalapeño, basil","$22"],["Squid curry","Mixed vegetables, curry, coconut milk, jalapeño, basil","$22"],
+["Imitation crab curry","Mixed vegetables, curry, coconut milk, jalapeño, basil","$22"],
+["Seafood curry","Shrimp, squid, imitation crab, vegetables, curry, jalapeño, basil","$23"],
+["Alaskan halibut","Vietnamese, ginger, curry or tamarind sauce","$25"],["Alaskan salmon","Vietnamese, ginger, teriyaki or tamarind sauce","$25"],
+["Mussels","Ginger, lemongrass, tamarind or curry sauce","$22"],["Tilapia fillet","Ginger, tamarind or Vietnamese sauce","$23"],
+["Thuha's tuna*","Tuna steak prepared the Vietnamese way","$25"],
+["Hana's prawns","Sautéed prawns, mixed vegetables, fresh ginger, spices and Mung's gourmet sauce","$26"]]},
+{id:"grill",t:"From the grill",note:"Served with steamed rice and vegetables, or thin rice noodles and a small salad.",items:[
+["Grilled lamb on a stick","","$24"],["Grilled beef on a stick","","$22"],["Grilled lemongrass pork on a stick","","$22"],
+["Grilled char siu pork on a stick","","$22"],["Grilled chicken on a stick","","$22"],["Grilled prawns on a stick","","$26"]]},
+{id:"vegetarian",t:"Vegetable entrées",note:"Eggs, broth, fish sauce and oyster sauce are used in some dishes. Fried rice and noodles: second price is with curry sauce. Entrées served with steamed rice (brown rice $3 extra).",items:[
+["Fresh vegetable spring rolls","","3 for $13"],["Vegetable crepes","","$20"],["Tofu salad","Fried tofu on spring mix with Vietnamese dressing","$20"],
+["Vegetable fried rice","","$20 / $21"],["Tofu fried rice","","$20 / $21"],["Vegetable sauté noodle","","$20 / $21"],["Tofu sauté noodle","","$20 / $21"],
+["Tofu curry with mixed vegetables","","$21"],["Tofu curry with tomato sauce and vegetables","","$21"],["Vegetable curry","","$20"],["Sauté vegetables","","$20"],
+["Tofu mixed vegetables","","$20"],["Spicy tofu with vegetables","","$20"],["Tamarind tofu with vegetables","","$20"],["Ginger tofu with vegetables","","$20"],["Garlic tofu with vegetables","","$20"]]},
+{id:"drinks",t:"Drinks",items:[
+["Soft drink","Coke, Diet Coke, Sprite, orange soda, root beer, iced tea, fruit punch, Dr Pepper","$3"],["Assorted juice","","$3"],
+["Thai tea","","$5"],["Vietnamese hot coffee","","$5.50"],["Vietnamese iced coffee","","$5.50"],["Italian soda","","$5"],["Jasmine tea","","$3"]]}
+];
+(function(){const chips=document.getElementById('chips'),fm=document.getElementById('fullmenu');
+ const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+ MENU.forEach(sec=>{chips.insertAdjacentHTML('beforeend',`<a href="#m-${sec.id}">${esc(sec.t)}</a>`);
+  fm.insertAdjacentHTML('beforeend',`<div class="msec" id="m-${sec.id}"><h3>${esc(sec.t)}</h3>${sec.note?`<p class="mnote">${esc(sec.note)}</p>`:''}<div class="menu">${sec.items.map(i=>`<div class="item"><div><h4>${esc(i[0])}${i[3]?` <span class="tag">${esc(i[3])}</span>`:''}</h4>${i[1]?`<p>${esc(i[1])}</p>`:''}</div><div class="pr">${esc(i[2])}</div></div>`).join('')}</div></div>`);});
+ chips.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});});
+})();
+const pages=[...document.querySelectorAll('.pg')],nav=document.getElementById('nav'),mb=document.getElementById('mbtn');
+function route(){let p=location.hash.slice(1)||'home';if(p==='full-menu')p='menu';if(!pages.some(x=>x.dataset.p===p))p='home';
+ pages.forEach(x=>x.classList.toggle('on',x.dataset.p===p));
+ document.querySelectorAll('nav.main [data-n]').forEach(a=>a.classList.toggle('on',a.dataset.n===p));
+ document.title=document.querySelector(`.pg[data-p="${p}"]`).dataset.t;window.scrollTo(0,0);nav.classList.remove('open');mb.setAttribute('aria-expanded','false');}
+addEventListener('hashchange',route);route();
+mb.onclick=()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+try{const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Anchorage'}));
+ const d=now.getDay(),m=now.getHours()*60+now.getMinutes();const pill=document.getElementById('openpill'),today=document.getElementById('today');
+ if(d===0||d===6){pill.textContent='Closed today';pill.classList.add('closed');today.innerHTML='<span>Closed weekends</span><span>Open Monday at 10am</span>';}
+ else if((m>=600&&m<900)||(m>=1020&&m<1110)){pill.textContent='Open now';}
+ else if(m<600){pill.textContent='Opens at 10am';pill.classList.add('closed');}
+ else if(m<1020){pill.textContent='Opens at 5pm';pill.classList.add('closed');}
+ else{pill.textContent='Closed for tonight';pill.classList.add('closed');}}catch(e){}
+</script>
+</body>
+</html>
