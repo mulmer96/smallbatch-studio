@@ -168,6 +168,14 @@
   .problem .wrap>.heart{margin-bottom:36px}
   :is(.problem,.services,.addins,.work,.how) .wrap>:is(.eyebrow,h2,.sub,.more){text-align:center;margin-left:auto;margin-right:auto}
   :is(.problem,.services,.addins,.work,.how) .wrap>.heart{justify-content:center}
+  .frames-w{position:relative;aspect-ratio:16/10}
+  .frames-w img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .5s ease}
+  .frames-w img.on{opacity:1}
+  .shot img{aspect-ratio:auto}
+  .ptabs{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px}
+  .ptabs button{font:inherit;font-size:12.5px;padding:6px 14px;border-radius:999px;border:1px solid var(--rose-soft);background:transparent;color:var(--muted);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+  .ptabs button:hover{border-color:var(--rose);color:var(--ink)}
+  .ptabs button.on{background:var(--rose);border-color:var(--rose);color:#fff}
   /* add-ins */
   .addins{padding-top:0}
   .grid-add{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -187,7 +195,7 @@
   .give-card h2{font-size:clamp(32px,4vw,46px);margin-bottom:4px}
   .give-card p{color:var(--muted);max-width:640px;margin-bottom:22px}
   .give-card strong{color:var(--rose)}
-  .give-cat{width:130px;height:130px;background:var(--butter);border-radius:50%;padding:16px;box-shadow:0 0 0 1.5px var(--rose-soft),0 0 0 7px var(--card),0 0 0 8px rgba(192,121,107,.22)}
+  .give-cat{width:130px;height:130px;background:var(--butter) url(neville.png) center/100% 100% no-repeat;background-blend-mode:multiply;border-radius:50%;box-shadow:0 0 0 1.5px var(--rose-soft),0 0 0 7px var(--card),0 0 0 8px rgba(192,121,107,.22)}
 
   /* work */
   .work{background:var(--butter)}
@@ -250,7 +258,7 @@
     .grid4,.steps{grid-template-columns:1fr 1fr}
     .about .photo{max-width:320px}
     section{padding:64px 0}
-    .give-card{grid-template-columns:1fr;padding:32px}.give-cat{width:90px;height:90px;padding:10px}
+    .give-card{grid-template-columns:1fr;padding:32px}.give-cat{width:90px;height:90px}
   }
   @media (max-width:560px){ .grid4,.steps{grid-template-columns:1fr} .logo{font-size:20px;gap:7px} .logo svg{width:28px;height:28px} nav .btn.small{padding:8px 12px;font-size:12.5px} .hero .ctas .btn{white-space:normal} }
 </style>
@@ -406,7 +414,7 @@
 <section class="give" id="giving-back">
   <div class="wrap">
     <div class="give-card label">
-      <svg class="give-cat"><use href="#cat"/></svg>
+      <div class="give-cat" role="img" aria-label="Drawing of Neville, a tuxedo cat"></div>
       <div>
         <div class="eyebrow">Giving back</div>
         <h2>The Neville Project</h2><div class="heart"><i></i>&hearts;<i></i></div>
@@ -423,17 +431,19 @@
     <h2>Fresh out of the oven.</h2><div class="heart"><i></i>&hearts;<i></i></div>
     <p class="sub">Concept redesigns for local businesses, made to show what's possible. More coming soon.</p>
     <div class="grid2">
-      <div class="case label">
-        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><img src="work-rays.jpg" alt="Concept redesign of Ray's Place website" loading="lazy"></div>
+      <div class="case label" data-case="rays">
+        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><div class="frames-w"><img src="work-rays.jpg" alt="Ray's Place concept: Home" loading="lazy" class="on"><img src="work-rays-menu.jpg" alt="Ray's Place concept: Menu" loading="lazy"><img src="work-rays-story.jpg" alt="Ray's Place concept: Our story" loading="lazy"></div></div>
+        <div class="ptabs"><button class="on" data-i="0">Home</button><button data-i="1">Menu</button><button data-i="2">Our story</button></div>
         <div class="no">Restaurant &middot; Anchorage</div>
         <h3>Ray's Place</h3>
         <p>A family-run Vietnamese restaurant: online ordering up front, a full menu that's easy on phones, and their story told properly.</p>
       </div>
-      <div class="case label">
-        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><img src="work-ivy.jpg" alt="Concept redesign of Salon Ivy website" loading="lazy"></div>
+      <div class="case label" data-case="ivy">
+        <div class="shot"><div class="dots"><i></i><i></i><i></i></div><div class="frames-w"><img src="work-ivy.jpg" alt="Salon Ivy concept: Home" loading="lazy" class="on"><img src="work-ivy-services.jpg" alt="Salon Ivy concept: Services" loading="lazy"><img src="work-ivy-about.jpg" alt="Salon Ivy concept: About" loading="lazy"></div></div>
+        <div class="ptabs"><button class="on" data-i="0">Home</button><button data-i="1">Services</button><button data-i="2">About</button></div>
         <div class="no">Hair salon &middot; Anchorage</div>
         <h3>Salon Ivy</h3>
-        <p>A calm, elegant salon site with services and prices in one place and a Book Now button on every page.</p>
+        <p>A calm, editorial salon site with a tabbed price list and a Book Now button on every page.</p>
       </div>
     </div>
   </div>
@@ -541,6 +551,8 @@
     function go(k){i=(k+n)%n;t.style.transform='translateX(-'+(i*100)+'%)';d.forEach(function(x,j){x.classList.toggle('on',j===i)});}
     document.getElementById('qnext').onclick=function(){go(i+1)};document.getElementById('qprev').onclick=function(){go(i-1)};
     d.forEach(function(x,j){x.onclick=function(){go(j)}});})();
+  document.querySelectorAll('.case').forEach(function(c){var im=c.querySelectorAll('.frames-w img'),bt=c.querySelectorAll('.ptabs button');
+    bt.forEach(function(x){x.onclick=function(){var i=+x.dataset.i;im.forEach(function(m,j){m.classList.toggle('on',j===i)});bt.forEach(function(y,j){y.classList.toggle('on',j===i)})}})});
   var fl=document.getElementById('flip');fl.addEventListener('click',function(){if(!matchMedia('(hover: hover)').matches)fl.classList.toggle('on')});
   document.getElementById('f').addEventListener('submit', function(e){
     e.preventDefault();
